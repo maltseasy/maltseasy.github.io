@@ -1,0 +1,181 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Algonquin Panoramas</title>
+  <link rel="stylesheet" href="https://cdn.pannellum.org/2.4/pannellum.css"/>
+  <script type="text/javascript" src="https://cdn.pannellum.org/2.4/pannellum.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link rel="icon" href="../../favicon.ico" />
+    <style>
+    #ap9321{
+        width: 100%;
+        height: 500px;
+    }
+    #ap11321{
+        width: 100%;
+        height: 500px;
+    }
+    #ap9332{
+        width: 100%;
+        height: 500px;
+    }
+    #ap20332{
+        width: 100%;
+        height: 500px;
+    }
+    </style>
+</head>
+<body data-spy="scroll" data-target="#navbarKeira" data-offset="98">
+  <div id="loading">
+     <div class="load-circle"><span class="one"></span></div>
+  </div>
+  <header>
+     <nav style="background-color: black">
+        <div class="nav-wrapper">
+           <a href="http://aryanmisra.com" class="brand-logo center">Aryan Misra</a>
+
+        </div>
+     </nav>
+  </header>
+  <main>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+           <h2 style="text-align: center">Panorama Showcase: AP20 Group 7</h2>
+        </div>
+        </div>
+      <div class="col s12">
+         <ul class="collapsible">
+            <li class="active">
+               <div class="collapsible-header"><i class="material-icons">details</i>Project Information</div>
+               <div class="collapsible-body"><span>
+                 <br><p>A showcasing of significant panoramas as highlighted within the "An Analysis of the Panorama Photos of Algonquin Park"
+                   paper.</p>
+                   <p>Elias K, Aryan M, Sophie Y, Alex Y | Panoramas</p>
+
+               </span>
+               </div>
+            </li>
+         </ul>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <h1>AP9 GTS 332</h1>
+          <p>Main Notable Difference: Change in soil leading away from lake</p>
+          <div id="ap9332"></div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h1>AP20 GTS 332</h1>
+          <p>Main Notable Difference: Change in soil leading away from lake</p>
+          <div id="ap20332"></div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h1>AP9 GTS 321</h1>
+          <p>Main Notable Difference: A second fallen tree in AP11</p>
+          <div id="ap9321"></div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h1>AP11 GTS 321</h1>
+          <p>Main Notable Difference: A second fallen tree in AP11</p>
+          <div id="ap11321"></div>
+        </div>
+      </div>
+    </div>
+  </main>
+<script>
+pannellum.viewer('ap9321', {
+    "type": "equirectangular",
+    "panorama": "https://i.imgur.com/4xpc44z.jpg",
+    "haov": 360,
+    "vaov": 80.15,
+    "vOffset": 1.17,
+    "autoLoad": true
+});
+pannellum.viewer('ap11321', {
+    "type": "equirectangular",
+    "panorama": "https://i.imgur.com/1XMzd1P.jpg",
+    "haov": 360,
+    "vaov": 80.15,
+    "vOffset": 1.17,
+    "autoLoad": true
+
+});
+pannellum.viewer('ap9332', {
+    "type": "equirectangular",
+    "panorama": "https://i.imgur.com/0AULGGU.jpg",
+    "haov": 360,
+    "vaov": 80.15,
+    "vOffset": 1.17,
+    "autoLoad": true
+});
+pannellum.viewer('ap20332', {
+    "type": "equirectangular",
+    "panorama": "https://i.imgur.com/LUlLdoG.jpg",
+    "haov": 360,
+    "vaov": 80.15,
+    "vOffset": 1.17,
+    "autoLoad": true
+
+});
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+<script type="text/javascript">
+   M.AutoInit();
+
+   document.addEventListener('DOMContentLoaded', function() {
+   var elems = document.querySelectorAll('.collapsible');
+   var instances = M.Collapsible.init(elems, options);
+   });
+
+   $(document).ready(function(){
+   $('.collapsible').collapsible();
+   });
+
+   document.addEventListener('DOMContentLoaded', function() {
+   var elems = document.querySelectorAll('select');
+   var instances = M.FormSelect.init(elems, options);
+   });
+
+   // Or with jQuery
+
+   $(document).ready(function(){
+   $('select').formSelect();
+   });
+</script>
+<footer class="page-footer" style="background-color: black">
+   <div class="container">
+      <div class="row">
+         <div>
+            <p class="grey-text text-lighten-4">Elias K, Aryan M, Sophie Y, Alex Y</p>
+         </div>
+         <div>
+            <ul class="social-icons">
+               <li><a class="grey-text text-lighten-3" href="http://aryanmisra.com"><i class="fas fa-home"></i></a></li>
+               
+            </ul>
+         </div>
+      </div>
+   </div>
+</footer>
+</body>
+
+</html>

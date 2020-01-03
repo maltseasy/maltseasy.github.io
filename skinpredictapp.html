@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <title>Skin Cancer Classifier</title>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+      <link rel="icon" href="../../favicon.ico" />
+      <style>
+         .social-icons {
+         margin: 0;
+         padding: 0;
+         }
+         .social-icons li {
+         display: inline-block;
+         vertical-align: top;
+         list-style: none;
+         }
+         .social-icons li a {
+         display: block;
+         width: 30px;
+         height: 30px;
+         text-align: center;
+         line-height: 30px;
+         color: #333;
+         border-radius: 50%;
+         -webkit-transition: ease all 0.3s;
+         -moz-transition: ease all 0.3s;
+         -o-transition: ease all 0.3s;
+         transition: ease all 0.3s;
+         }
+         .social-icons li a:hover {
+         background: #333;
+         color: #fff;
+         }
+         body {
+         display: flex;
+         min-height: 100vh;
+         flex-direction: column;
+         }
+         main {
+         flex: 1 0 auto;
+         }
+      </style>
+   </head>
+   <body data-spy="scroll" data-target="#navbarKeira" data-offset="98">
+      <div id="loading">
+         <div class="load-circle"><span class="one"></span></div>
+      </div>
+      <header>
+         <nav style="background-color: black">
+            <div class="nav-wrapper">
+               <a href="http://aryanmisra.com" class="brand-logo center">Aryan Misra</a>
+            </div>
+         </nav>
+      </header>
+      <img src="../../static/img/skin.jpg" style="display: none" alt="">
+      <main>
+         <section>
+            <div class="container">
+               <div class="row">
+                  <div class="col-12">
+                     <h2 style="text-align: center">Skin Lesion Classifier</h2>
+                  </div>
+                  <div class="col s12">
+                     <ul class="collapsible">
+                        <li class="active">
+                           <div class="collapsible-header"><i class="material-icons">details</i>Project Information</div>
+                           <div class="collapsible-body"><span>An image classifier that can be used to classify seven different types of skin lesions.
+                              <br>This model uses the MobileNet architecture and was retrained using HAM10000.
+                              <br>The model obtains an accuracy of approximately 85%, with a top-3 accuracy of approximately 94%.
+                              <br>Made using native Keras and converted to TensorflowJS for use on this web interface.
+                              <br>All project files and more information can be found <a class="blue-text text-lighten-3" href="https://github.com/aryanmisra/Skin-Lesion-Classifier">here</a>.</span>
+                           </div>
+                        </li>
+                     </ul>
+                  </div>
+                  <div class="col s12">
+                     <ul class="collapsible">
+                        <li>
+                           <div class="collapsible-header"><i class="material-icons">details</i>Dataset Information</div>
+                           <div class="collapsible-body">
+                              <ul class="collection">
+                                 <li>
+                                    <h4>Actinic Keratoses and intraepithelial Carcinoma</h4>
+                                    <p>Actinic Keratoses (Solar Keratoses) and intraepithelial Carcinoma (Bowen's disease) are common non-invasive, variants of squamous cell car- cinoma that can be treated locally without surgery. Some authors regard them as precursors of squamous cell carcinomas and not as actual carci- nomas. There is, however, agreement that these lesions may progress to invasive squamous cell carcinoma - which is usually not pigmented. Both neoplasms commonly show surface scaling and commonly are devoid of pigment. Actinic keratoses are more common on the face and Bowen's disease is more common on other body sites. Because both types are in- duced by UV-light the surrounding skin is usually typified by severe sun damaged except in cases of Bowens disease that are caused by human papilloma virus infection and not by UV. </p>
+                                 </li>
+                                 <li>
+                                    <h4>Basal Cell Carcinoma</h4>
+                                    <p>Basal cell carcinoma is a common variant of epithelial skin cancer that rarely metastasizes but grows destructively if untreated. It appears in different morphologic variants (flat, nodular, pigmented, cystic).</p>
+                                 </li>
+                                 <li>
+                                    <h4>Benign Keratosis</h4>
+                                    <p>"Benign keratosis" is a generic class that includes seborrheic keratoses ("senile wart"), solar lentigo - which can be regarded a flat variant of seborrheic keratosis - and lichen-planus like keratoses (LPLK), which corresponds to a seborrheic keratosis or a solar lentigo with inflammation and regression. The three subgroups may look different dermatoscopically, but we grouped them together because they are similar biologically and often reported under the same generic term histopathologically. From a dermatoscopic view, lichen planus-like keratoses are especially challenging because they can show morphologic features mimicking melanoma and are often biopsied or excised for diagnostic reasons. The dermatoscopic appearance of seborrheic keratoses varies according to anatomic site and type.</p>
+                                 </li>
+                                 <li>
+                                    <h4>Dermatofibroma</h4>
+                                    <p>Dermatofibroma is a benign skin lesion regarded as either a benign proliferation or an inflammatory reaction to minimal trauma. The most common dermatoscopic presentation is reticular lines at the periphery with a central white patch denoting fibrosis.</p>
+                                 </li>
+                                 <li>
+                                    <h4>Melanoma</h4>
+                                    <p>Melanoma is a malignant neoplasm derived from melanocytes that may appear in different variants. If excised in an early stage it can be cured by simple surgical excision. Melanomas can be invasive or noninvasive (in situ). We included all variants of melanoma including melanoma in situ, but did exclude non-pigmented, subungual, ocular or mucosal melanoma. Melanomas are usually, albeit not always, chaotic, and some melanoma specific criteria depend on anatomic site.</p>
+                                 </li>
+                                 <li>
+                                    <h4>Melanocytic Nevi</h4>
+                                    <p>Melanocytic nevi are benign neoplasms of melanocytes and appear in a myriad of variants, which all are included in our series. The variants may differ significantly from a dermatoscopic point of view. In contrast to melanoma they are usually symmetric with regard to the distribution of color and structure.</p>
+                                 </li>
+                                 <li>
+                                    <h4>Vascular Lesions</h4>
+                                    <p>Vascular skin lesions in the dataset range from cherry angiomas to angiokeratomas and pyogenic granulomas. Hemorrhage is also included in this category. Angiomas are dermatoscopically characterized by red or purple color and solid, well circumscribed structures known as red clods or lacunes.</p>
+                                 </li>
+                              </ul>
+                           </div>
+                        </li>
+                     </ul>
+                  </div>
+                  <div class="col s12">
+                     <ul class="collapsible">
+                        <li>
+                           <div class="collapsible-header"><i class="material-icons">details</i>Sample Images</div>
+                           <div class="collapsible-body">
+                              <span>
+                                 <div class="collection">
+                                    <a download="akiec.jpg" href="images/sample/akiec.jpg" class="collection-item">Actinic Keratoses</a>
+                                    <a download="bcc.jpg" href="images/sample/bcc.jpg" class="collection-item">Basal Cell Carcinoma</a>
+                                    <a download="bkl.jpg" href="images/sample/bkl.jpg" class="collection-item">Benign Keratosis</a>
+                                    <a download="df.jpg" href="images/sample/df.jpg" class="collection-item">Dermatofibroma</a>
+                                    <a download="mel.jpg" href="images/sample/mel.jpg" class="collection-item">Melanoma</a>
+                                    <a download="nv.jpg" href="images/sample/nv.jpg" class="collection-item">Melonocytic Nevi</a>
+                                    <a download="vasc.jpg" href="images/sample/vasc.jpg" class="collection-item">Vascular Lesion</a>
+                                 </div>
+                              </span>
+                           </div>
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+            <div class="container">
+               <div class="row">
+                  <!--<div id="progress" class="progress" style="display: none">
+                     <div class="indeterminate"></div>-->
+                  <div class="progress progress-bar progress-bar-striped progress-bar-animated mb-2" style="display:none">
+                     Loading Model
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="input-field col s6">
+                     <select id="model-selector" class="custom-select">
+                        <option selected disabled>Select Model</option>
+                        <option>SkinLesionPred</option>
+                     </select>
+                  </div>
+                  <form action="#" style="margin-top: 5%">
+                     <div class="file-field input-field col s6">
+                        <div class="btn">
+                           <span>Choose Image</span>
+                           <input id="image-selector" type="file">
+                        </div>
+                        <div class="file-path-wrapper">
+                           <input class="file-path validate" type="text">
+                        </div>
+                     </div>
+                  </form>
+               </div>
+               <div>
+                  <button id="predict-button" class="btn btn-dark float-right">Predict</button>
+               </div>
+               <div class="row">
+                  <div class="col s6">
+                     <h2 class="ml-3">Predictions</h2>
+                     <ol id="prediction-list"></ol>
+                  </div>
+                  <div class="col s6">
+                     <h2 class="ml-3">Image</h2>
+                     <img id="selected-image" class="ml-3" src="/" alt="" width="100%" height="auto">
+                  </div>
+               </div>
+            </div>
+         </section>
+         </div>
+      </main>
+      <footer class="page-footer" style="background-color: black">
+         <div class="container">
+            <div class="row">
+               <div>
+                  <p class="grey-text text-lighten-4">The information on this page can be found <a class="blue-text text-lighten-3" href="https://arxiv.org/ftp/arxiv/papers/1803/1803.10417.pdf">here</a>.</p>
+               </div>
+               <div>
+                  <ul class="social-icons">
+                     <li><a class="grey-text text-lighten-3" href="http://aryanmisra.com"><i class="fas fa-home"></i></a></li>
+                     <li><a class="grey-text text-lighten-3" href="https://www.linkedin.com/in/aryan-misra"><i class="fab fa-linkedin-in"></i></a></li>
+                     <li><a class="grey-text text-lighten-3" href="https://medium.com/@aryanmisra"><i class="fab fa-medium-m"></i></a></li>
+                     <li><a class="grey-text text-lighten-3" href="https://github.com/aryanmisra/Skin-Lesion-Classifier"><i class="fab fa-github"></i></a></li>
+                  </ul>
+               </div>
+            </div>
+         </div>
+      </footer>
+      <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.13.3/dist/tf.min.js"></script>
+      <script src="cancer_classes.js"></script>
+      <script src="predict.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+      <script type="text/javascript">
+         M.AutoInit();
+
+         document.addEventListener('DOMContentLoaded', function() {
+         var elems = document.querySelectorAll('.collapsible');
+         var instances = M.Collapsible.init(elems, options);
+         });
+
+         $(document).ready(function(){
+         $('.collapsible').collapsible();
+         });
+
+         document.addEventListener('DOMContentLoaded', function() {
+         var elems = document.querySelectorAll('select');
+         var instances = M.FormSelect.init(elems, options);
+         });
+
+         // Or with jQuery
+
+         $(document).ready(function(){
+         $('select').formSelect();
+         });
+      </script>
+   </body>
+</html>
