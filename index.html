@@ -173,7 +173,18 @@ const config = { childList: true, characterData: true, subtree: true };
 observer.observe(element, config);
   </script>
   <script>window.COFRAME_PAGE_ID="f2de486a91423923f32d4a48";</script>
-  <script src='https://cdn.jsdelivr.net/npm/coframe-ai/dist/cf.min.js'></script>
+  <!-- <script src='https://cdn.jsdelivr.net/npm/coframe-ai/dist/cf.min.js'></script> -->
+  <script>
+    $(function(){
+      if($('body').is('.worker')){
+        return;
+      } else {
+        var s = document.createElement('script');
+        s.setAttribute('src', 'https://cdn.jsdelivr.net/npm/coframe-ai/dist/cf.min.js');
+        document.body.appendChild(s)
+      }
+    })
+  </script>
 </body>
 
 </html>
