@@ -6,15 +6,12 @@
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
   <title>aryan misra</title>
 
-  <link rel="stylesheet" href="https://aryanmisra.com/css/styles.css">
-  <link rel="stylesheet" href="https://aryanmisra.com/css/pygment_trac.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/pygment_trac.css">
   <meta name="viewport" content="width=device-width">
-  <link rel="apple-touch-icon" sizes="180x180" href="https://aryanmisra.com/icons/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="https://aryanmisra.com/icons/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="https://aryanmisra.com/icons/favicon-16x16.png">
-  
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-  
+  <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
   <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -24,9 +21,9 @@
   <div class="wrapper">
     <header>
       <h1>0xmalteasy</h1>
-      <img src="https://aryanmisra.com/assets/talking.png" alt="Avatar">
-      <p>Hi, I'm Aryan. Welcome to my internet page. <br>
-        <p id="highlight1">Built deep probabilistic models for drug discovery and started a crypto exchange with my friends in hs that reached millions in TVL.</p>
+      <img src="assets/talking.png" alt="Avatar">
+      <p>Hi, I'm Aryan. Welcome to my internet page. <br><br>
+        Built deep probabilistic models for drug discovery and started a crypto exchange with my friends in hs that reached millions in TVL.<br><br>
         Currently I'm in university and I'm working on making electric cars more energy efficient by using markov chain monte carlo to determine optimal driving behaviour. <br><br>
         Also part of Dr. Saeid Habibi's group at McMaster University working on battery fault detection and diagnosis w/ ML.<br><br>
       </p>
@@ -59,21 +56,21 @@
       <ul>
         <li>Offered<b> $1M </b> at a<b> $10M valuation</b> from angel investors</li>
         <li>Bitswap was the first service offering an automated cross chain orderbook from the <a href="https://bitclout.com/">Bitclout</a> (now <a href="https://www.deso.org/">DESO</a>) blockchain to Ethereum.</li>
-        <li>Ultimately Bitswap was shut down for legal reasons and you can read the statement <a href="https://bitswap.network/bitswap-service-update">here</a>.</li>
+        <li>Ultimately Bitswap was shut down for legal reasons and you can read the statement <a href="https://web.archive.org/web/20221007101050/https://bitswap.network/bitswap-service-update">here</a>.</li>
         <li><a target="_blank" href="https://www.businessinsider.com/what-is-bitclout-how-to-buy-creator-coins-2021-4">Business Insider</a></li>
       </ul>
       <h2>Beanstalk Farms ($BEAN)</h2>
       <p><a href="https://bean.money/" target="_blank">a decentralized credit-<b>based</b> algorithmic stablecoin</a></p>
       <p><a href="https://github.com/BeanstalkFarms/Beanstalk/issues/88" target="_blank">BIP-29: Pod Market Price Functions</a></p>
       <ul>
-        <li id="highlight2">Developed a Solidity library to facilitate on-chain asset pricing along arbitrarily defined price curves.</li>
+        <li>Developed a Solidity library to facilitate on-chain asset pricing along arbitrarily defined price curves.</li>
         <li>This allows the protocol to improve marketplace liquidity depth for the protocol's native debt asset, Pods, and allows for detailed analysis of price curves to more efficiently establish fair market value.</li>
         <li>Used Solidity for library development and JS to write unit tests.</li>
       </ul>
       <h2>Holy Grail AI (YC 2019)</h2>
       <p><a href="https://www.holygrail.ai/" target="_blank">research process optimization using machine learning.</a></p>
       <ul>
-        <li id="highlight4">Worked with the founders on debugging and fixing bayesian active learning (baal), feature importance estimation, and other related tasks.</li>
+        <li>Worked with the founders on debugging and fixing bayesian active learning (baal), feature importance estimation, and other related tasks.</li>
         <li>Programmed mainly in pytorch <a href="https://pyro.ai/">(pyro)</a>, a deep probabilistic library that we used to create <a href="https://github.com/ElementAI/baal">bayesian neural networks</a></li>
       </ul>
       <h2>AscendBuild</h2>
@@ -85,7 +82,7 @@
       </ul>
       <h1>Projects:</h1>
       <h2>Synbiolic (Microsoft Imagine Cup)</h2>
-      <p id="highlight3"><a href="https://synbiolicai.netlify.app/" target="_blank">deep probabilistic models to accelerate drug
+      <p><a href="https://synbiolicai.netlify.app/" target="_blank">deep probabilistic models to accelerate drug
             discovery</a></p>
       <ul>
         <li><a
@@ -149,50 +146,8 @@
       <p></p>
     </footer>
   </div>
-  <script src="https://aryanmisra.com/js/scale.fix.js"></script>
-  <script>
-    const element1 = document.getElementById('highlight1');
-    const element2 = document.getElementById('highlight2');
-    const element3 = document.getElementById('highlight3');
-    const element4 = document.getElementById('highlight4');
-const observer = new MutationObserver( function (mutations) {
-  console.log(mutations)
-  mutations.forEach(function (mutation) {
-    // if (mutation.type = 'childList') {
-      element1.style.backgroundColor = 'lightgreen';
-      element2.style.backgroundColor = 'lightgreen';
-      element3.style.backgroundColor = 'lightgreen';
-      element4.style.backgroundColor = 'lightgreen';
-      setTimeout(function () {
-        element1.style.backgroundColor = 'white';
-        element2.style.backgroundColor = 'white';
-        element3.style.backgroundColor = 'white';
-        element4.style.backgroundColor = 'white';
-      }, 2000);
-    // }
-  });
-});
+  <script src="js/scale.fix.js"></script>
 
-const config = { childList: true, characterData: true, subtree: true };
-
-observer.observe(element1, config);
-observer.observe(element2, config);
-observer.observe(element3, config);
-observer.observe(element4, config);
-  </script>
-  <script>window.COFRAME_PAGE_ID="87e4f500f01a3cc4467ee663";</script>
-  <!-- <script src='https://cdn.jsdelivr.net/npm/coframe-ai/dist/cf.min.js'></script> -->
-  <script>
-    $(function(){
-      if($('body').is('.worker')){
-        return;
-      } else {
-        var s = document.createElement('script');
-        s.setAttribute('src', 'https://cdn.jsdelivr.net/npm/coframe-ai/dist/cf.min.js');
-        document.body.appendChild(s)
-      }
-    })
-  </script>
 </body>
 
 </html>
