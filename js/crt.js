@@ -191,5 +191,21 @@
       if (!this._decoding) { reset(this); startDecode(this, 360); }
     });
   }
+
+  // parallax: pan the header image as the page scrolls, revealing a different part
+  var banner = document.querySelector(".banner");
+  if (banner) {
+    var bTick = false, bY = 0;
+    var pan = function () {
+      banner.style.backgroundPosition =
+        "center calc(35% + " + (bY * 0.5).toFixed(1) + "px)";
+      bTick = false;
+    };
+    window.addEventListener("scroll", function () {
+      bY = window.pageYOffset || document.documentElement.scrollTop || 0;
+      if (!bTick) { bTick = true; requestAnimationFrame(pan); }
+    }, { passive: true });
+  }
+
   requestAnimationFrame(frame);
 })();
