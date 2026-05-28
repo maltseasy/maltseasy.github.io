@@ -35,10 +35,9 @@ body {
 /* header banner — the presentation photo, visible but understated */
 .banner {
   flex-basis: 100%;
-  height: 380px;
+  height: 140px;
   background: url(../assets/talking.jpg) no-repeat center 35%;
   background-size: cover;
-  border: 1px solid var(--rule);
   border-radius: 6px;
 }
 
