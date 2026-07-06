@@ -1,152 +1,567 @@
 <!doctype html>
-<html>
-
+<html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Aryan Misra</title>
-  <meta name="robots" content="noindex, nofollow">
+  <meta name="description" content="Aryan Misra. Machine learning for RNA therapeutics: generative sequence models, differentiable folding, Bayesian inference. Selected work in ML, crypto exchange infrastructure, and generative models.">
+  <link rel="canonical" href="https://aryanmisra.com/">
+  <meta name="theme-color" content="#022b6d">
 
-  <link rel="stylesheet" href="css/styles.css">
-  <meta name="viewport" content="width=device-width">
-  <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
-  <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+  <!-- favicons (root-absolute: resolve from server root now and after promotion) -->
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+  <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+
+  <!-- social cards -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://aryanmisra.com/">
+  <meta property="og:title" content="Aryan Misra">
+  <meta property="og:description" content="Machine learning for RNA therapeutics: generative sequence models, differentiable folding, Bayesian inference.">
+  <meta property="og:image" content="https://aryanmisra.com/assets/talking.jpg">
+  <meta property="og:image:width" content="1400">
+  <meta property="og:image:height" content="888">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Aryan Misra">
+  <meta name="twitter:description" content="Machine learning for RNA therapeutics: generative sequence models, differentiable folding, Bayesian inference.">
+  <meta name="twitter:image" content="https://aryanmisra.com/assets/talking.jpg">
+
+  <link rel="stylesheet" href="showcase.css">
 </head>
-
 <body>
-  <canvas class="crt" aria-hidden="true"></canvas>
-  <div class="wrapper">
-    <div class="banner"></div>
+  <div class="wrap">
+    <div class="banner" aria-hidden="true"></div>
+
     <header>
-      <img src="assets/headshot.jpg" alt="Aryan Misra">
-      <h1>Aryan Misra</h1>
-      <p>Mathematics and Statistics, University of Toronto.</p>
-      <!-- <div class="view"><a href="./blog/">blog</a></div> -->
-      <!-- <br> -->
-      <div class="view"><a href="https://github.com/maltseasy">github</a></div>
-      <div class="view"><a href="https://www.twitter.com/0xmalteasy">twitter</a></div>
-      <div class="view"><a href="mailto:aryanmisra4@gmail.com">mail</a></div>
-      <div class="view"><a href="https://devpost.com/aryan-misra">devpost</a></div>
-
+      <div class="mast">
+        <div class="who">
+          <h1>Aryan Misra</h1>
+          <p>Mathematics &amp; Statistics, University of Toronto</p>
+        </div>
+        <nav>
+          <a href="https://github.com/maltseasy">github</a><span class="d">·</span>
+          <a href="https://www.twitter.com/malteasy">twitter</a><span class="d">·</span>
+          <a href="https://devpost.com/aryan-misra">devpost</a><span class="d">·</span>
+          <a href="mailto:aryanmisra4@gmail.com">mail</a>
+        </nav>
+      </div>
+      <p class="intro"><b>Machine learning for RNA therapeutics</b>: generative sequence models, differentiable folding, and Bayesian inference. Before that, a crypto order-book exchange, molecular generation, and image super-resolution.</p>
     </header>
+
     <section>
+      <div class="kicker"><h2>Now</h2><span class="line"></span></div>
+      <div id="now"></div>
 
-      <h1>Now</h1>
-      <p><b>Machine learning for drug design</b></p>
-      <ul>
-        <li>State-space (Mamba) sequence models for learning RNA representations</li>
-        <li>Differentiable RNA folding providing secondary-structure features</li>
-        <li>Guided discrete diffusion for generative RNA sequence design with property objectives</li>
-        <li>Hierarchical Bayesian / beta-binomial GLMMs for sparse biological count data</li>
-      </ul>
+      <div class="kicker"><h2>Past</h2><span class="line"></span><span class="count" id="pwc"></span></div>
+      <div id="past"></div>
+      <noscript>
+        <div class="nojs">
+          <article><h3>RNA therapeutic design</h3><p class="y">since 2024</p><p>State-space sequence encoders for RNA representation, differentiable secondary-structure folding, and guided discrete diffusion for property-constrained sequence design. Hierarchical Bayesian models for sparse assay data.</p></article>
+          <article><h3>Bitswap</h3><p class="y">2021</p><p>Full order-book exchange for BitClout (DeSo). Price-time-priority matching engine: limit and market orders, partial fills, on-chain settlement between BitClout and Ethereum. Co-founder and CTO; open-sourced at wind-down.</p><p><a href="https://github.com/bitswap-network" rel="noopener">github</a>, <a href="https://github.com/bitswap-network/exchange-engine" rel="noopener">engine</a></p></article>
+          <article><h3>AscendBuild</h3><p class="y">2020</p><p>Real estate development search. Rental listings scraped across Craigslist, Zumper, and Kijiji, aggregated into building-level records with price-per-square-foot trends and developer comparables. Mapbox GL basemap with polygon-draw parcel search. The Next 36, Next Canada 2020.</p></article>
+          <article><h3>Synbiolic</h3><p class="y">2020</p><p>Generative model for small molecules. A variational autoencoder optimized for drug-likeness (QED), with IBM RXN predicting retrosynthetic routes. Microsoft Imagine Cup 2020, Americas runner-up.</p><p><a href="https://devpost.com/software/synbiolic" rel="noopener">read more</a></p></article>
+          <article><h3>Holy Grail</h3><p class="y">2020</p><p>Active learning for materials formulation at Holy Grail (YC S19). MC-dropout Bayesian network with a Bayesian-optimized architecture; permutation feature importance and variational optimal experiment design to choose the next formulation to run. Applied to bioplastics, concrete, brewing.</p></article>
+          <article><h3>NeuraScale</h3><p class="y">2019</p><p>Super-resolution GAN (SRGAN) trained on MS COCO. 2x upscaling at arbitrary resolution by tiling, super-resolving, and stitching past the network's fixed input size.</p><p><a href="https://github.com/maltseasy/NeuraScale" rel="noopener">github</a></p></article>
+        </div>
+      </noscript>
 
-      <h1>Past</h1>
-      <p><a href="https://x.com/BitSwapNetwork" target="_blank"><b>Off-ramp exchange for BitClout (Bitswap, co-founder)</b></a></p>
-      <ul>
-        <li>Designed and built a full order-book exchange moving funds between BitClout and Ethereum in seconds</li>
-        <li>Processed millions in transaction volume</li>
-      </ul>
-      <p><a href="https://synbiolicai.netlify.app/" target="_blank"><b>Deep probabilistic models for drug discovery (Synbiolic)</b></a></p>
-      <ul>
-        <li>Variational autoencoder for de novo small-molecule generation, with latent-space optimization toward QED</li>
-        <li>Retrosynthesis pathways generated with IBM RXN</li>
-        <li><a
-            href="https://news.microsoft.com/en-ca/2020/03/30/team-synbiolic-from-canada-wins-runner-up-position-at-the-2020-microsoft-imagine-cup-americas-regional-finals/"
-            target="_blank">Microsoft Imagine Cup finalist</a></li>
-      </ul>
-      <p><a href="https://ryde.netlify.app/" target="_blank"><b>Machine learning research (Holy Grail, YC19)</b></a></p>
-      <ul>
-        <li>Bayesian active learning (MC-dropout, BALD acquisition) and feature-importance estimation</li>
-      </ul>
-      <p><a href="https://github.com/maltseasy/NeuraScale" target="_blank"><b>Super-resolution with generative networks (NeuraScale)</b></a></p>
-      <ul>
-        <li>SRGAN for single-image super-resolution, with perceptual and adversarial losses</li>
-        <li><a href="https://devpost.com/software/neurascale" target="_blank">#PoweredByTensorFlow 2.0 challenge winner</a></li>
-      </ul>
-      <p><a href="https://ascendbuild.co/" target="_blank"><b>Real estate technology (AscendBuild, Next 36)</b></a></p>
-      <ul>
-        <li>Geospatial search engine with Mapbox GL visualizations</li>
-      </ul>
-
-      <!-- <p>you can find the rest on my github/devpost. these are the ones that I think are cool :)</p> -->
-
-      <!-- <h1>hmu if you can: </h1>
-        <ul>
-          <li>give me an idea of an ubuntu package to build. something that you'd use. i want to contribute to opensource more.</li>
-          <li>have any ideas that could help with what i'm working on right now.</li>
-          <li>provide an oppurtunity for interesting work.</li>
-        </ul> -->
-
-      <h1>Coursework</h1>
+      <div class="kicker"><h2>Coursework</h2><span class="line"></span></div>
       <div class="tags">
-        <span class="tag">Elements of Analysis (MAT336)</span>
-        <span class="tag">Complex Variables (MAT334)</span>
-        <span class="tag">Combinatorics (MAT344)</span>
-        <span class="tag">Probability (STA347)</span>
-        <span class="tag">Stochastic Processes (STA447)</span>
-        <span class="tag">Mathematical Statistics (STA453)</span>
-        <span class="tag">Applied Bayesian Statistics (STA365)</span>
-        <span class="tag">Methods of Data Analysis (STA302)</span>
+        <span class="t">Elements of Analysis (MAT336)</span><span class="t">Complex Variables (MAT334)</span><span class="t">Combinatorics (MAT344)</span><span class="t">Probability (STA347)</span><span class="t">Stochastic Processes (STA447)</span><span class="t">Mathematical Statistics (STA453)</span><span class="t">Applied Bayesian Statistics (STA365)</span><span class="t">Methods of Data Analysis (STA302)</span>
       </div>
 
-      <h1>Writing</h1>
-      <ul>
-        <li><a
-            href="https://towardsdatascience.com/the-end-to-all-blurry-pictures-f27e49f23588?source=friends_link&sk=c73eb6f866a486d77b81c8bccfd4a8a7">Super-Resolution</a></li>
-        <li><a
-            href="https://medium.com/@aryanmisra/the-protein-folding-problem-dfa49030f775?source=friends_link&sk=3d23fdf4ee548f17b8ba6d8f173bdfbf">Protein Folding</a></li>
-        <li><a
-            href="https://towardsdatascience.com/capsule-networks-the-new-deep-learning-network-bd917e6818e8?source=friends_link&sk=038cc423f0e6c1c2e5849e60412fc806">Capsule Networks</a></li>
+      <div class="kicker"><h2>Writing</h2><span class="line"></span></div>
+      <ul class="writing">
+        <li><a href="https://towardsdatascience.com/the-end-to-all-blurry-pictures-f27e49f23588?source=friends_link&sk=c73eb6f866a486d77b81c8bccfd4a8a7" target="_blank" rel="noopener">Image super-resolution</a><span class="src">Towards Data Science</span></li>
+        <li><a href="https://medium.com/@aryanmisra/the-protein-folding-problem-dfa49030f775?source=friends_link&sk=3d23fdf4ee548f17b8ba6d8f173bdfbf" target="_blank" rel="noopener">Protein folding</a><span class="src">Medium</span></li>
+        <li><a href="https://towardsdatascience.com/capsule-networks-the-new-deep-learning-network-bd917e6818e8?source=friends_link&sk=038cc423f0e6c1c2e5849e60412fc806" target="_blank" rel="noopener">Capsule networks</a><span class="src">Towards Data Science</span></li>
       </ul>
-      <!-- <p>these are the one's I think are the most interesting, you can check the rest out on my medium profile.</p> -->
 
-      <br>
-      <br>
-
-      <pre>                               ____________
+      <pre class="ascii" aria-hidden="true">                               ____________
                             __/ ///////// /|
                            /              ¯/|
                           /_______________/ |
     ________________      |  __________  |  |
-   /               /|     | |  ty for  | |  |
-  /               / |     | | visiting | |  |
+   /               /|     | |  end of  | |  |
+  /               / |     | |  stream  | |  |
  /_______________/  |/\   | |          | |  |
-(_______________(   |  \  | |__________| | /   
+(_______________(   |  \  | |__________| | /
 (_______________(   |   \ |______________|/ ___/\
 (_______________(  /     |____>______<_____/     \
 (_______________( /     / = ==== ==== ==== /|    _|_
 (               (/     / ========= === ===/ /   ////
  ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯      / ========= === ===/ /   /  /
-                     <__________________<_/    ¯¯¯
-    </pre>
-
-      <!-- <div class="ml-form-embed"
-    data-account="1996430:m4h7a4n3y6"
-    data-form="2037580:s8j9a5">
-  </div> -->
+                     <__________________<_/    ¯¯¯</pre>
     </section>
   </div>
-  <script src="js/scale.fix.js"></script>
-  <script src="js/crt.js"></script>
-  <!-- MailerLite Universal -->
+
   <script>
-    (function (m, a, i, l, e, r) {
-      m['MailerLiteObject'] = e; function f() {
-        var c = { a: arguments, q: [] }; var r = this.push(c); return "number" != typeof r ? r : f.bind(c.q);
-      }
-      f.q = f.q || []; m[e] = m[e] || f.bind(f.q); m[e].q = m[e].q || f.q; r = a.createElement(i);
-      var _ = a.getElementsByTagName(i)[0]; r.async = 1; r.src = l + '?v' + (~~(new Date().getTime() / 1000000));
-      _.parentNode.insertBefore(r, _);
-    })(window, document, 'script', 'https://static.mailerlite.com/js/universal.js', 'ml');
+  document.documentElement.classList.add('js');
+  const REDUCE = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  /* run an animation frame only while the canvas is on-screen (saves battery) */
+  function gateRAF(el, frame){
+    let raf=null, vis=false;
+    const tick=()=>{ if(!vis){ raf=null; return; } frame(); raf=requestAnimationFrame(tick); };
+    new IntersectionObserver(es=>{ vis=es[0].isIntersecting; if(vis && raf===null) raf=requestAnimationFrame(tick); },{threshold:0}).observe(el);
+  }
 
-    var ml_account = ml('accounts', '1996430', 'm4h7a4n3y6', 'load');
+  /* current → oldest */
+  const PROJECTS = [
+    { title:'RNA therapeutic design', year:'since 2024', n:'01',
+      write:'State-space sequence encoders for RNA representation, differentiable secondary-structure folding, and guided discrete diffusion for property-constrained sequence design. Hierarchical Bayesian models for sparse assay data.',
+      links:[],
+      media:{type:'fold', mat:true, label:'sequence → fold'} },
+
+    { title:'Bitswap', year:'2021', n:'02',
+      short:'Order-book exchange for BitClout. Co-founder and CTO.', thumb:'assets/bitswap-poster.jpg',
+      write:'Full order-book exchange for BitClout (DeSo). Price-time-priority matching engine: limit and market orders, partial fills, on-chain settlement between BitClout and Ethereum. Co-founder and CTO; open-sourced at wind-down.',
+      stat:'<b>$3M+</b> volume · <b>6,000+</b> users',
+      links:[{l:'github',h:'https://github.com/bitswap-network'},{l:'engine',h:'https://github.com/bitswap-network/exchange-engine'},{l:'new yorker',h:'https://www.newyorker.com/tech/annals-of-technology/the-dark-democratizing-power-of-the-social-media-stock-market'}],
+      media:{type:'video', src:'assets/bitswap-loop.mp4', poster:'assets/bitswap-poster.jpg', corner:'bitswap.network'} },
+
+    { title:'AscendBuild', year:'2020', n:'03',
+      short:'Real estate development search over scraped rental listings.', thumb:'assets/ascend-poster.jpg',
+      write:'Real estate development search. Rental listings scraped across Craigslist, Zumper, and Kijiji, aggregated into building-level records with price-per-square-foot trends and developer comparables. Mapbox GL basemap with polygon-draw parcel search (turf point-in-polygon).',
+      stat:'The Next 36 · Next Canada 2020',
+      links:[{l:'next canada',h:'https://www.nextcanada.com/next-36/'}],
+      media:{type:'video', src:'assets/ascend-loop.mp4', poster:'assets/ascend-poster.jpg', corner:'ascendbuild'} },
+
+    { title:'Synbiolic', year:'2020', n:'04',
+      short:'Generative VAE for small molecules, optimized for drug-likeness.', thumb:'https://raw.githubusercontent.com/wlawt/synbiolic/master/client/src/components/img/generate.png',
+      write:'Generative model for small molecules. A variational autoencoder optimized for drug-likeness (QED), with IBM RXN predicting retrosynthetic routes.',
+      stat:'Microsoft Imagine Cup ’20, Americas runner-up',
+      links:[{l:'read more',h:'https://devpost.com/software/synbiolic'},{l:'landing',h:'https://synbiolicai.netlify.app/'},{l:'pitch',h:'https://www.youtube.com/watch?v=OUDGOfMDOi0'}],
+      media:{type:'gallery', mat:true,
+        images:['https://raw.githubusercontent.com/wlawt/synbiolic/master/client/src/components/img/generate.png',
+                'https://raw.githubusercontent.com/wlawt/synbiolic/master/client/src/components/img/retro.png'],
+        captions:['generate · pIC50 distribution','retrosynthesis pathway']} },
+
+    { title:'Holy Grail', year:'2020', n:'05',
+      short:'Bayesian active learning and optimal experiment design for materials.', thumb:'assets/al-poster.jpg',
+      write:'Active learning for materials formulation at Holy Grail (YC S19). MC-dropout Bayesian network with a Bayesian-optimized architecture; permutation feature importance and variational optimal experiment design to choose the next formulation to run. Applied to bioplastics, concrete, brewing.',
+      links:[],
+      media:{type:'al', label:'active learning · OED'} },
+
+    { title:'NeuraScale', year:'2019', n:'06',
+      short:'Super-resolution GAN. 2× upscaling at arbitrary resolution.', thumb:'assets/neura_after.png',
+      write:'Super-resolution GAN (SRGAN) trained on MS COCO. 2× upscaling at arbitrary resolution by tiling, super-resolving, and stitching past the network’s fixed input size. Drag to compare.',
+      stat:'<a href="https://tensorflow.devpost.com/" target="_blank" rel="noopener">tensorflow 2.0 challenge</a>',
+      links:[{l:'github',h:'https://github.com/maltseasy/NeuraScale'},{l:'video',h:'https://youtu.be/MGCR36iL_JM'},{l:'read more',h:'https://devpost.com/software/neurascale'}],
+      media:{type:'srslider', before:'assets/neura_before.png', after:'assets/neura_after.png'} },
+  ];
+
+  const nowEl=document.getElementById('now'), pastEl=document.getElementById('past');
+  const div=c=>{const d=document.createElement('div'); if(c)d.className=c; return d;};
+  window.phFail=(el,t)=>{const d=div('ph'); d.textContent=t||'unavailable'; el.replaceWith(d);};
+  const linksHTML=p=>p.links.length?`<div class="links">${p.links.map(l=>`<a href="${l.h}" target="_blank" rel="noopener">${l.l}</a>`).join('<span class="d">·</span>')}</div>`:'';
+
+  /* returns {node, mount} — node is appended directly into .figure */
+  function buildMedia(p){
+    const m=p.media;
+    const thumb=div('thumb'+(m.mat?' mat':'')+(m.type==='fold'?' tall':''));
+    let root, mount=()=>{};
+    if(m.type==='video'){
+      root=div('mroot frame');
+      root.innerHTML=`<video src="${m.src}" poster="${m.poster}" width="1280" height="720" loop muted playsinline preload="none" aria-label="${p.title} product demo"></video><span class="vtint" aria-hidden="true"></span>`
+        +(m.corner?`<span class="corner">${m.corner}</span>`:'')
+        +`<button class="vtoggle" type="button" aria-label="Pause demo">❚❚</button>`;
+      mount=()=>{ const v=root.querySelector('video'), btn=root.querySelector('.vtoggle');
+        const play=()=>{ const pp=v.play(); if(pp) pp.catch(()=>{}); };
+        v.addEventListener('error',()=>phFail(root,'demo unavailable'));
+        const sync=()=>{ btn.textContent=v.paused?'▶':'❚❚'; btn.setAttribute('aria-label',v.paused?'Play demo':'Pause demo'); };
+        btn.addEventListener('click',()=>{ v.paused?play():v.pause(); sync(); });
+        if(REDUCE){ btn.hidden=true; return; }
+        play(); v.addEventListener('canplay',play); v.addEventListener('loadeddata',play); v.addEventListener('play',sync); v.addEventListener('pause',sync);
+        document.addEventListener('visibilitychange',()=>{ if(!document.hidden && !v.paused) play(); }); };
+    } else if(m.type==='gallery'){
+      root=div('mroot frame gallery fit');
+      root.innerHTML=m.images.map((s,i)=>`<img class="g${i?'':' on'}" src="${s}" alt="${m.captions[i]}" loading="lazy" decoding="async" onerror="phFail(this,'screen')">`).join('')+`<span class="corner">${m.captions[0]}</span>`;
+      mount=()=>mountGallery(root,m.captions);
+    } else if(m.type==='srslider'){
+      root=div('mroot ba');
+      root.setAttribute('tabindex','0'); root.setAttribute('role','slider');
+      root.setAttribute('aria-label','Reveal super-resolution output'); root.setAttribute('aria-valuemin','0');
+      root.setAttribute('aria-valuemax','100'); root.setAttribute('aria-valuenow','50');
+      root.setAttribute('aria-roledescription','before/after image comparison slider');
+      root.setAttribute('aria-valuetext','50% super-resolution output revealed');
+      root.innerHTML=`<img class="after" src="${m.after}" width="1000" height="667" alt="SRGAN output" draggable="false" loading="lazy" decoding="async" onerror="phFail(this,'image')">
+        <img class="before" src="${m.before}" width="1000" height="667" alt="low-res input" draggable="false" loading="lazy" decoding="async">
+        <div class="divider"></div><div class="knob">↔</div>
+        <span class="tag l">low-res input</span><span class="tag r">SRGAN ×2</span>`;
+      mount=()=>mountSR(root);
+    } else if(m.type==='al'){
+      root=div('mroot frame canvasf'); root.innerHTML=`<canvas role="img" aria-label="Active-learning loop selecting the most informative experiment"></canvas><span class="corner">${m.label}</span>`;
+      mount=()=>mountAL(root.querySelector('canvas'));
+    } else { /* fold floating above its real fitness landscape (one 3D scene) */
+      root=div('mroot frame canvasf'); root.innerHTML=`<canvas role="img" aria-label="RNA fold floating above its real fitness landscape; a marker hill-climbs the surface toward higher fold score"></canvas><span class="corner">${m.label}</span>`;
+      mount=()=>mountFold(root.querySelector('canvas'));
+    }
+    thumb.appendChild(root); return {node:thumb, mount};
+  }
+
+  function mountGallery(root,caps){
+    const imgs=[...root.querySelectorAll('.g')], cap=root.querySelector('.corner'); let i=0; cap.textContent=caps[0];
+    if(REDUCE) return;
+    let id=null;
+    const adv=()=>{ imgs[i].classList.remove('on'); i=(i+1)%imgs.length; imgs[i].classList.add('on'); cap.textContent=caps[i]; };
+    new IntersectionObserver(es=>{ if(es[0].isIntersecting){ if(!id) id=setInterval(adv,2800); } else { if(id){ clearInterval(id); id=null; } } },{threshold:0}).observe(root);
+  }
+
+  /* ── bespoke: REAL RNA fold — Nussinov base-pairing + hill-climb + physics ── */
+  const _A='AUGC', _canPair=(x,y)=>{const s=x+y; return s==='AU'||s==='UA'||s==='GC'||s==='CG'||s==='GU'||s==='UG';};
+  function _fold(seq){
+    const n=seq.length, MIN=3, M=Array.from({length:n},()=>new Int16Array(n));
+    for(let span=MIN+1;span<n;span++) for(let i=0;i+span<n;i++){ const j=i+span; let best=M[i+1][j];
+      for(let k=i+MIN+1;k<=j;k++) if(_canPair(seq[i],seq[k])){ const v=1+M[i+1][k-1]+((k+1<=j)?M[k+1][j]:0); if(v>best)best=v; }
+      M[i][j]=best; }
+    const pair=new Int16Array(n).fill(-1), stk=[[0,n-1]];
+    while(stk.length){ const a=stk.pop(), i=a[0], j=a[1]; if(i>=j) continue;
+      if(M[i][j]===M[i+1][j]){ stk.push([i+1,j]); continue; }
+      for(let k=i+MIN+1;k<=j;k++) if(_canPair(seq[i],seq[k]) && M[i][j]===1+M[i+1][k-1]+((k+1<=j)?M[k+1][j]:0)){
+        pair[i]=k; pair[k]=i; stk.push([i+1,k-1]); if(k+1<=j) stk.push([k+1,j]); break; } }
+    return pair;
+  }
+  function _score(seq,pair){ let pairs=0,stack=0; for(let i=0;i<seq.length;i++) if(pair[i]>i){ pairs++; if(i>0&&pair[i-1]===pair[i]+1) stack++; } return {pairs,stack,val:pairs+0.6*stack}; }
+  function _run(N){
+    let seq=Array.from({length:N},()=>_A[Math.random()*4|0]);
+    let best={seq:seq, pair:_fold(seq)}; best.sc=_score(best.seq,best.pair);
+    let step=0, stale=0; const MAX=300, probes=[], PCAP=160;   // probes: recent REAL candidate evaluations, for the search cloud
+    return { get seq(){return best.seq;}, get pair(){return best.pair;}, get sc(){return best.sc;}, get step(){return step;}, get probes(){return probes;}, MAX,
+      tick(){ if(step>=MAX||stale>40) return false;            // one mutation per tick — slower, clearer ascent
+        step++; const c=best.seq.slice(), p=Math.random()*N|0; c[p]=_A[Math.random()*4|0];
+        const cp=_fold(c), cs=_score(c,cp);
+        const acc = cs.val>best.sc.val || (Math.random()<0.04*(1-step/MAX) && cs.val>=best.sc.val-0.6);
+        if(acc){ best={seq:c,pair:cp,sc:cs}; stale=0; } else stale++;
+        probes.push({step, val:cs.val, stack:cs.stack, acc}); if(probes.length>PCAP) probes.shift();
+        return true; } };
+  }
+  /* fold floating above its REAL fitness landscape; a marker hill-climbs the surface to the peak */
+  function mountFold(cv){
+    /* ═══════════════════════════════════════════════════════════════════════
+       TWEAK HERE — every knob for this widget (RNA fold + 3D fitness surface).
+       Edit a value and refresh. Nothing else needs touching.
+       ═══════════════════════════════════════════════════════════════════════ */
+    const CFG = {
+      // ── RNA strand + fitness landscape ────────────────────────────────
+      seqLength:      32,     // bases in the RNA strand
+      gridSize:       12,     // surface mesh resolution N×N (cost: (N+1)² fold evals per reseed)
+      smoothPasses:   1,      // smoothing of the real score field (0 = rugged spikes, more = rounder hills)
+
+      // ── timing ────────────────────────────────────────────────────────
+      framesPerStep:  48,     // frames the marker takes to cross one grid cell — HIGHER = slower climb
+      holdFrames:     150,    // frames paused at the peak before a new landscape is generated
+
+      // ── rotation ──────────────────────────────────────────────────────
+      spinSpeed:      0.006,  // radians/frame the surface spins (0 = static, negative = reverse)
+      startYaw:       0.62,   // initial view angle
+
+      // ── 3D surface placement + size (fractions of canvas width/height) ─
+      surfaceX:       0.50,   // surface center x
+      surfaceY:       0.85,   // surface center y  → moves the whole landscape up/down
+      surfaceWidth:   0.46,   // horizontal scale
+      surfaceDepth:   0.13,   // depth foreshortening (the tilt)
+      surfaceHeight:  0.27,   // vertical relief — bigger = taller, more dramatic hills
+
+      // ── the RNA molecule floating above the surface ───────────────────
+      foldY:          0.26,   // molecule's seed vertical position (fraction of height); higher = bigger gap to the surface
+      foldMaxY:       0.55,   // hard lower bound of the float zone: nodes cannot cross below this (keeps clear of the surface)
+      foldScale:      1.05,   // molecule size (bond length, ×min(w,h)/N; auto-shrinks on narrow canvases so it never spills)
+      foldRadius:     0.74,   // nucleotide circle size (×min(w,h)/N)
+
+      // ── fold physics ──────────────────────────────────────────────────
+      backboneStiff:  0.18,   pairStiff:0.10,   pairRestFrac:0.92,
+      repulsion:      6.0,    damping:0.86,     centering:0.0022,   maxSpeedFrac:0.6,
+
+      // ── surface shading ───────────────────────────────────────────────
+      light:          [-0.5,-0.72,0.6],  // light direction (x,y,z) for the lit surface
+      shadeAmbient:   0.5,    // brightness of faces angled away from the light (0..1)
+
+      // ── palette ───────────────────────────────────────────────────────
+      navyRGB:   '2,43,109',  // brand navy as "r,g,b"
+      bg:        '#fbfcff',   // canvas background
+      letterAU:  '#1b1b1b',   // A / U letters
+      letterGC:  '#022b6d',   // G / C letters
+      letterOff: '#767d8f',   // unpaired-base letters (4.1:1 on white — legible, was #aeb4c0 at 2.0:1)
+    };
+    /* ═══════════════════════════════════════════════════════════════════════ */
+    const navy = a => `rgba(${CFG.navyRGB},${a})`;
+    const LETTER = { A:CFG.letterAU, U:CFG.letterAU, G:CFG.letterGC, C:CFG.letterGC };
+
+    const ctx=cv.getContext('2d'), DPR=Math.min(2,devicePixelRatio||1), N=CFG.seqLength;
+    const A4='AUGC', rnB=()=>A4[Math.random()*4|0];
+    let nodes, frame=0;
+    let G, S0, Apos, Bpos, Atar, Btar, Z, zMin, zMax, seqG, path, pathPair, mi, sub, hold, peak;
+    const size=()=>{ const r=cv.getBoundingClientRect(); cv.width=Math.max(1,r.width*DPR); cv.height=Math.max(1,r.height*DPR); };
+
+    /* a REAL 2D slice of sequence space: mutate disjoint position sets A,B of S0 toward random targets.
+       grid (i,j) = (#A mutated, #B mutated); height = the real Nussinov fold score of that sequence. */
+    function seqAt(i,j){ const s=S0.slice(), na=Math.round(i/G*Apos.length), nb=Math.round(j/G*Bpos.length);
+      for(let k=0;k<na;k++) s[Apos[k]]=Atar[k]; for(let k=0;k<nb;k++) s[Bpos[k]]=Btar[k]; return s; }
+    function buildLandscape(){ G=CFG.gridSize; S0=Array.from({length:N},rnB);
+      const perm=[...Array(N).keys()]; for(let i=N-1;i>0;i--){ const k=Math.random()*(i+1)|0,t=perm[i];perm[i]=perm[k];perm[k]=t; }
+      Apos=perm.slice(0,N>>1); Bpos=perm.slice(N>>1); Atar=Apos.map(rnB); Btar=Bpos.map(rnB);
+      Z=[]; seqG=[];
+      for(let i=0;i<=G;i++){ Z[i]=new Float64Array(G+1); seqG[i]=[];
+        for(let j=0;j<=G;j++){ const s=seqAt(i,j); Z[i][j]=_score(s,_fold(s)).val; seqG[i][j]=s; } }
+      for(let pass=0;pass<CFG.smoothPasses;pass++){ const Y=Z.map(r=>Float64Array.from(r));     // smooth the real score field into hills
+        for(let i=0;i<=G;i++)for(let j=0;j<=G;j++){ let s=0,n=0; for(let di=-1;di<=1;di++)for(let dj=-1;dj<=1;dj++){ const a=i+di,b=j+dj; if(a<0||b<0||a>G||b>G)continue; s+=Z[a][b]; n++; } Y[i][j]=s/n; }
+        Z=Y; }
+      zMin=Infinity; zMax=-Infinity; for(let i=0;i<=G;i++)for(let j=0;j<=G;j++){ if(Z[i][j]<zMin)zMin=Z[i][j]; if(Z[i][j]>zMax)zMax=Z[i][j]; }
+      let ci=0,cj=0,lo=Infinity; for(let i=0;i<=G;i++)for(let j=0;j<=G;j++) if(Z[i][j]<lo){lo=Z[i][j];ci=i;cj=j;}   // start at the lowest point
+      path=[[ci,cj]];
+      for(let it=0; it<500; it++){ let bi=ci,bj=cj,bv=Z[ci][cj];                  // steepest ascent up the real surface
+        for(let di=-1;di<=1;di++) for(let dj=-1;dj<=1;dj++){ const ni=ci+di,nj=cj+dj; if(ni<0||nj<0||ni>G||nj>G)continue; if(Z[ni][nj]>bv){bv=Z[ni][nj];bi=ni;bj=nj;} }
+        if(bi===ci&&bj===cj) break; ci=bi;cj=bj; path.push([ci,cj]); }
+      pathPair=path.map(([i,j])=>_fold(seqG[i][j])); mi=0; sub=0; hold=0; peak=false; }
+    const zN=v=>(v-zMin)/Math.max(1e-6,zMax-zMin);
+
+    /* one shared STATIC camera (fixed yaw + tilt). Surface sits low; the fold floats above it in z. */
+    let yaw=CFG.startYaw, cYAW=Math.cos(yaw), sYAW=Math.sin(yaw);
+    function sp(u,v,z){ const w=cv.width,h=cv.height,
+        cx=w*CFG.surfaceX, cy=h*CFG.surfaceY, SX=w*CFG.surfaceWidth, SY=w*CFG.surfaceDepth, SZ=h*CFG.surfaceHeight;
+      const wx=u-0.5, wy=v-0.5, rx=wx*cYAW-wy*sYAW, ry=wx*sYAW+wy*cYAW;
+      return { x: cx+rx*SX, y: cy+ry*SY - z*SZ }; }
+    const cell=()=>path[Math.min(mi,path.length-1)];
+    const curSeq=()=>seqG[cell()[0]][cell()[1]], curPair=()=>pathPair[Math.min(mi,pathPair.length-1)];
+    function marker(){ const a=path[mi], b=path[Math.min(mi+1,path.length-1)], t=sub,
+      za=zN(Z[a[0]][a[1]]), zb=zN(Z[b[0]][b[1]]); return {u:(a[0]+(b[0]-a[0])*t)/G, v:(a[1]+(b[1]-a[1])*t)/G, z:za+(zb-za)*t}; }
+
+    function initFold(){ const w=cv.width,h=cv.height, cx=w*0.5, cy=h*CFG.foldY;
+      const narrow=Math.min(1, w/(560*DPR));                       // shrink the whole molecule on narrow canvases
+      const BL=Math.min(w,h)/N*CFG.foldScale*narrow;
+      const R=Math.min(w,h)/N*CFG.foldRadius*narrow, PAD=R+2*DPR;
+      const spread=Math.min(0.85,(w-2*PAD)/((N-1)*BL||1));         // keep the initial coil inside the panel width
+      nodes=Array.from({length:N},(_,i)=>{ const x=cx+(i-(N-1)/2)*BL*spread, y=cy+Math.sin(i*0.5)*5*DPR; return {x,y,px:x,py:y}; });
+      nodes._BL=BL; nodes._cx=cx; nodes._cy=cy; nodes._R=R; }
+    function spring(i,j,rest,k,fx,fy){ let dx=nodes[j].x-nodes[i].x,dy=nodes[j].y-nodes[i].y,d=Math.hypot(dx,dy)||0.01; const f=(d-rest)*k; dx/=d;dy/=d; fx[i]+=dx*f;fy[i]+=dy*f;fx[j]-=dx*f;fy[j]-=dy*f; }
+    function physics(pair){ const BL=nodes._BL,kB=CFG.backboneStiff,kP=CFG.pairStiff,RP=BL*CFG.pairRestFrac,REP=BL*BL*CFG.repulsion,damp=CFG.damping;
+      const fx=new Float64Array(N),fy=new Float64Array(N);
+      for(let i=0;i<N-1;i++) spring(i,i+1,BL,kB,fx,fy);
+      for(let i=0;i<N;i++) if(pair[i]>i) spring(i,pair[i],RP,kP,fx,fy);
+      for(let i=0;i<N;i++) for(let j=i+1;j<N;j++){ let dx=nodes[i].x-nodes[j].x,dy=nodes[i].y-nodes[j].y,d2=dx*dx+dy*dy||0.01;
+        if(d2<BL*BL*9){ const f=REP/d2,d=Math.sqrt(d2); dx/=d;dy/=d; fx[i]+=dx*f;fy[i]+=dy*f;fx[j]-=dx*f;fy[j]-=dy*f; } }
+      const cx=nodes._cx,cy=nodes._cy;
+      const W=cv.width,H=cv.height, R=nodes._R||Math.min(W,H)/N*CFG.foldRadius, PAD=R+2*DPR, floorY=H*CFG.foldMaxY;
+      for(let i=0;i<N;i++){ fx[i]+=(cx-nodes[i].x)*CFG.centering; fy[i]+=(cy-nodes[i].y)*CFG.centering;
+        const n=nodes[i]; let vx=(n.x-n.px)*damp+fx[i]*0.5, vy=(n.y-n.py)*damp+fy[i]*0.5;
+        const s2=Math.hypot(vx,vy),MX=BL*CFG.maxSpeedFrac; if(s2>MX){ vx*=MX/s2; vy*=MX/s2; } n.px=n.x;n.py=n.y;n.x+=vx;n.y+=vy;
+        n.x=Math.max(PAD,Math.min(W-PAD,n.x)); n.y=Math.max(PAD,Math.min(floorY,n.y)); } }   // hard walls: the molecule can never spill its panel
+
+    function drawSurface(){
+      const cells=[];                                                        // painter's algorithm: far faces first so near ridges OCCLUDE -> solid 3D
+      for(let i=0;i<G;i++) for(let j=0;j<G;j++){ const cu=(i+0.5)/G-0.5, cv2=(j+0.5)/G-0.5; cells.push({i,j,d:cu*sYAW+cv2*cYAW}); }
+      cells.sort((a,b)=>b.d-a.d);
+      const [Lx,Ly,Lz]=CFG.light, Ll=Math.hypot(Lx,Ly,Lz), amb=CFG.shadeAmbient;   // light direction for Lambert shading
+      for(const c of cells){ const i=c.i,j=c.j;
+        const z00=zN(Z[i][j]),z10=zN(Z[i+1][j]),z11=zN(Z[i+1][j+1]),z01=zN(Z[i][j+1]);
+        const P00=sp(i/G,j/G,z00),P10=sp((i+1)/G,j/G,z10),P11=sp((i+1)/G,(j+1)/G,z11),P01=sp(i/G,(j+1)/G,z01);
+        const mz=(z00+z10+z11+z01)/4, dzdx=(z10-z00+z11-z01)/2, dzdy=(z01-z00+z11-z10)/2;
+        const nx=-dzdx*5.5, ny=-dzdy*5.5, nz=1, nl=Math.hypot(nx,ny,nz);
+        const lam=Math.max(0,(nx*Lx+ny*Ly+nz*Lz)/(nl*Ll)), t=(0.16+0.74*mz)*(amb+(1-amb)*lam);
+        const R=255+(2-255)*t|0, Gc=255+(43-255)*t|0, B=255+(109-255)*t|0;
+        ctx.beginPath(); ctx.moveTo(P00.x,P00.y); ctx.lineTo(P10.x,P10.y); ctx.lineTo(P11.x,P11.y); ctx.lineTo(P01.x,P01.y); ctx.closePath();
+        ctx.fillStyle=`rgb(${R},${Gc},${B})`; ctx.fill(); ctx.lineWidth=0.6*DPR; ctx.strokeStyle=navy(.16); ctx.stroke(); }
+      if(mi>0){ const pts=[]; for(let k=0;k<=mi;k++){ const c=path[k]; pts.push(sp(c[0]/G,c[1]/G,zN(Z[c[0]][c[1]]))); } ctx.lineJoin='round';
+        ctx.beginPath(); pts.forEach((P,k)=>k?ctx.lineTo(P.x,P.y):ctx.moveTo(P.x,P.y)); ctx.lineWidth=4.5*DPR; ctx.strokeStyle='rgba(255,255,255,.85)'; ctx.stroke();   // white casing: visible over dark peaks
+        ctx.beginPath(); pts.forEach((P,k)=>k?ctx.lineTo(P.x,P.y):ctx.moveTo(P.x,P.y)); ctx.lineWidth=2.2*DPR; ctx.strokeStyle=navy(1); ctx.stroke(); }
+      const M=marker(), Pm=sp(M.u,M.v,M.z);                                   // climbing marker, white core so it reads on navy peaks
+      const g=ctx.createRadialGradient(Pm.x,Pm.y,0,Pm.x,Pm.y,13*DPR); g.addColorStop(0,'rgba(255,255,255,.9)'); g.addColorStop(1,'rgba(255,255,255,0)');
+      ctx.fillStyle=g; ctx.beginPath(); ctx.arc(Pm.x,Pm.y,13*DPR,0,7); ctx.fill();
+      ctx.beginPath(); ctx.arc(Pm.x,Pm.y,4*DPR,0,7); ctx.fillStyle='#fff'; ctx.fill(); ctx.lineWidth=1.8*DPR; ctx.strokeStyle=navy(1); ctx.stroke(); return Pm; }
+
+    function drawFold(){ const w=cv.width,h=cv.height, seq=curSeq(), pair=curPair();
+      ctx.lineWidth=1*DPR; ctx.strokeStyle=navy(.20);
+      for(let i=0;i<N;i++) if(pair[i]>i){ ctx.beginPath(); ctx.moveTo(nodes[i].x,nodes[i].y); ctx.lineTo(nodes[pair[i]].x,nodes[pair[i]].y); ctx.stroke(); }
+      ctx.lineWidth=1.6*DPR; ctx.strokeStyle=navy(.5); ctx.beginPath(); ctx.moveTo(nodes[0].x,nodes[0].y); for(let i=1;i<N;i++) ctx.lineTo(nodes[i].x,nodes[i].y); ctx.stroke();
+      const R=nodes._R||Math.min(w,h)/N*CFG.foldRadius; ctx.font=`${R*1.05}px ui-monospace, Menlo, monospace`; ctx.textAlign='center'; ctx.textBaseline='middle';
+      for(let i=0;i<N;i++){ const n=nodes[i],pd=pair[i]>=0;
+        ctx.beginPath(); ctx.arc(n.x,n.y,R,0,Math.PI*2); ctx.fillStyle=pd?'#fff':'#fbfcfe'; ctx.fill();
+        ctx.lineWidth=1*DPR; ctx.strokeStyle=pd?navy(.85):'rgba(0,0,0,.12)'; ctx.stroke();
+        ctx.fillStyle=pd?LETTER[seq[i]]:CFG.letterOff; ctx.fillText(seq[i],n.x,n.y); } }
+
+    function drawScene(){ const w=cv.width,h=cv.height; ctx.clearRect(0,0,w,h); ctx.fillStyle=CFG.bg; ctx.fillRect(0,0,w,h); cYAW=Math.cos(yaw); sYAW=Math.sin(yaw);
+      const Pm=drawSurface();
+      let byMax=-Infinity; for(const n of nodes) if(n.y>byMax) byMax=n.y;   // tether from the molecule's actual bottom, wherever physics settled it
+      ctx.save(); ctx.setLineDash([3*DPR,4*DPR]); ctx.lineWidth=1*DPR; ctx.strokeStyle=navy(.26);
+      ctx.beginPath(); ctx.moveTo(nodes._cx, byMax); ctx.lineTo(Pm.x,Pm.y); ctx.stroke(); ctx.restore();
+      drawFold();
+      ctx.font=`${10*DPR}px ui-monospace,Menlo,monospace`; ctx.textBaseline='alphabetic'; const sc=_score(curSeq(),curPair());
+      ctx.textAlign='right'; ctx.fillStyle=navy(.8); ctx.fillText(`${sc.pairs} bp · `+(peak?'peak':'climbing'), w-12*DPR, h-12*DPR); }   // terse status, clears the corner chip at every width
+
+    function start(){ size(); buildLandscape(); initFold(); }
+    function step(){ frame++; yaw += CFG.spinSpeed;
+      if(!peak){ sub += 1/CFG.framesPerStep; if(sub>=1){ sub=0; if(mi<path.length-1) mi++; else peak=true; } }
+      else { hold++; if(hold>CFG.holdFrames){ buildLandscape(); initFold(); } }
+      physics(curPair()); drawScene(); }
+    start();
+    const relayout=()=>{ if(!cv.clientWidth) return; size(); initFold(); };   // guard against zero-size (display:none)
+    if(REDUCE){ mi=path.length-1; sub=0; peak=true; for(let i=0;i<400;i++) physics(curPair()); drawScene();
+      new ResizeObserver(()=>{ relayout(); for(let i=0;i<400;i++) physics(curPair()); drawScene(); }).observe(cv); return; }
+    gateRAF(cv, step);
+    new ResizeObserver(relayout).observe(cv);   // catches orientation change + mobile URL-bar reflow, not just window resize
+  }
+
+  /* ── super-res slider — overlays two REAL registered images; selection-safe drag + keyboard ── */
+  function mountSR(root){
+    const vtext=n=>Math.round(n)+'% super-resolution output revealed';
+    const set=x=>{ const r=root.getBoundingClientRect(); const v=Math.max(1.5,Math.min(98.5,(x-r.left)/r.width*100));
+      root.style.setProperty('--pos',v+'%'); root.setAttribute('aria-valuenow',Math.round(v)); root.setAttribute('aria-valuetext',vtext(v)); };
+    const setPct=v=>{ const c=Math.round(Math.max(0,Math.min(100,v))); root.setAttribute('aria-valuenow',c); root.setAttribute('aria-valuetext',vtext(c));
+      root.style.setProperty('--pos',Math.max(1.5,Math.min(98.5,v))+'%'); };
+    let drag=false;
+    const stop=()=>{ drag=false; document.documentElement.classList.remove('sel-none'); };
+    root.addEventListener('pointerdown',e=>{ e.preventDefault(); drag=true; document.documentElement.classList.add('sel-none'); try{root.setPointerCapture(e.pointerId)}catch(_){} set(e.clientX); });
+    root.addEventListener('pointermove',e=>{ if(drag){ e.preventDefault(); set(e.clientX); } });
+    addEventListener('pointerup',stop); root.addEventListener('lostpointercapture',stop);
+    root.addEventListener('keydown',e=>{ const cur=parseFloat(root.getAttribute('aria-valuenow'))||50;
+      let v; if(e.key==='ArrowLeft') v=cur-4; else if(e.key==='ArrowRight') v=cur+4;
+      else if(e.key==='Home') v=0; else if(e.key==='End') v=100; else return;
+      e.preventDefault(); setPct(v); });
+  }
+
+  /* ── bespoke: REAL active learning — Gaussian-process fit + optimal-experiment-design loop ── */
+  function mountAL(cv){
+    /* ═══════════════════════════════════════════════════════════════════════
+       TWEAK HERE — every knob for the active-learning / Gaussian-process widget.
+       ═══════════════════════════════════════════════════════════════════════ */
+    const CFG = {
+      // ── Gaussian-process model ──────────────────────────────────────────
+      lengthscale:     0.10,   // RBF kernel length — smaller = wigglier fits
+      signalVar:       1.0,    // kernel signal variance
+      noiseJitter:     0.0009, // observation noise / numerical jitter
+      gridRes:         110,    // x-resolution of the fitted curve
+      maxPoints:       12,     // experiments collected before the loop restarts
+      yMin:           -2.4,    // plot vertical range (low)
+      yMax:            2.4,    // plot vertical range (high)
+
+      // ── timing ──────────────────────────────────────────────────────────
+      framesPerSample: 70,     // frames between each new experiment — HIGHER = slower
+      holdFrames:      150,    // frames held after the last experiment before restarting
+      ease:            0.12,   // how fast the drawn band eases to the new fit (0..1)
+
+      // ── hidden "true" function (sum of random sinusoids) ───────────────
+      components: 3, ampMin:0.35, ampMax:0.7, freqMin:0.8, freqMax:2.6,
+
+      // ── palette ─────────────────────────────────────────────────────────
+      navyRGB: '2,43,109',     // brand navy (band, mean curve, markers)
+      muted:   '#6b7280',      // axis labels (4.8:1 on white — was #8a90a0 at 3.2:1)
+    };
+    /* ═══════════════════════════════════════════════════════════════════════ */
+    const navy = a => `rgba(${CFG.navyRGB},${a})`;
+
+    const ctx=cv.getContext('2d'), DPR=Math.min(2,devicePixelRatio||1);
+    const L_=CFG.lengthscale, S2=CFG.signalVar, SN2=CFG.noiseJitter, GRID=CFG.gridRes, MAXPTS=CFG.maxPoints, YMIN=CFG.yMin, YMAX=CFG.yMax;
+    const gx=Array.from({length:GRID},(_,i)=>i/(GRID-1)), R=(a,b)=>a+Math.random()*(b-a);
+    const kern=(a,b)=>{const d=a-b; return S2*Math.exp(-d*d/(2*L_*L_));};
+    function chol(A,n){const M=Array.from({length:n},()=>new Float64Array(n));
+      for(let i=0;i<n;i++)for(let j=0;j<=i;j++){let s=A[i][j];for(let k=0;k<j;k++)s-=M[i][k]*M[j][k];
+        if(i===j){ if(s<=0) return null; M[i][j]=Math.sqrt(s); } else M[i][j]=s/M[j][j];} return M;}
+    const fsv=(M,b,n)=>{const y=new Float64Array(n);for(let i=0;i<n;i++){let s=b[i];for(let k=0;k<i;k++)s-=M[i][k]*y[k];y[i]=s/M[i][i];}return y;};
+    const bsv=(M,b,n)=>{const x=new Float64Array(n);for(let i=n-1;i>=0;i--){let s=b[i];for(let k=i+1;k<n;k++)s-=M[k][i]*x[k];x[i]=s/M[i][i];}return x;};
+    function fit(xs,ys){const n=xs.length;
+      for(let jit=SN2, att=0; att<5; att++, jit*=10){            // adaptive jitter until K is positive-definite
+        const K=Array.from({length:n},()=>new Float64Array(n));
+        for(let i=0;i<n;i++)for(let j=0;j<n;j++)K[i][j]=kern(xs[i],xs[j])+(i===j?jit:0);
+        const M=chol(K,n); if(!M) continue;
+        const al=bsv(M,fsv(M,Float64Array.from(ys),n),n), mean=new Float64Array(GRID),vv=new Float64Array(GRID);
+        for(let g=0;g<GRID;g++){const ks=new Float64Array(n);for(let i=0;i<n;i++)ks[i]=kern(gx[g],xs[i]);
+          let m=0;for(let i=0;i<n;i++)m+=ks[i]*al[i];mean[g]=m;
+          const v=fsv(M,ks,n);let q=0;for(let i=0;i<n;i++)q+=v[i]*v[i];vv[g]=Math.max(1e-6,S2-q);} return {mean,varr:vv};}
+      return {mean:new Float64Array(GRID), varr:new Float64Array(GRID).fill(S2)};
+    }
+    const mkTrue=()=>{const c=[];for(let i=0;i<CFG.components;i++)c.push({a:R(CFG.ampMin,CFG.ampMax),w:R(CFG.freqMin,CFG.freqMax),p:R(0,6.283)});
+      return x=>{let s=0;for(const k of c)s+=k.a*Math.sin(k.w*2*Math.PI*x+k.p);return s;};};
+    const size=()=>{const r=cv.getBoundingClientRect();cv.width=Math.max(1,r.width*DPR);cv.height=Math.max(1,r.height*DPR);};
+    let trueF,xs,ys,post,dispM,dispV,nextX,tAcc,hold;
+    function start(){trueF=mkTrue();xs=[];ys=[];hold=0;tAcc=0;
+      for(let i=0;i<2;i++){const x=R(0.05,0.95);xs.push(x);ys.push(trueF(x));}
+      post=fit(xs,ys);dispM=Float64Array.from(post.mean);dispV=Float64Array.from(post.varr);pick();}
+    function pick(){let bi=0,bv=-1;for(let g=0;g<GRID;g++)if(dispV[g]>bv){bv=dispV[g];bi=g;}nextX=gx[bi];}
+    function sample(){if(xs.length>=MAXPTS)return;xs.push(nextX);ys.push(trueF(nextX));post=fit(xs,ys);}
+    const padL=w=>Math.max(24*DPR,w*0.06), padR=w=>Math.max(30*DPR,w*0.07);   // proportional with floors: labels never clip on a narrow panel
+    const PX=(x,w)=>padL(w)+x*(w-padL(w)-padR(w)), PY=(y,h)=>16*DPR+(1-(y-YMIN)/(YMAX-YMIN))*(h-58*DPR);
+    function draw(){const w=cv.width,h=cv.height;ctx.clearRect(0,0,w,h);
+      for(let g=0;g<GRID;g++){dispM[g]+=(post.mean[g]-dispM[g])*CFG.ease;dispV[g]+=(post.varr[g]-dispV[g])*CFG.ease;}
+      ctx.beginPath();for(let g=0;g<GRID;g++){const x=PX(gx[g],w),y=PY(dispM[g]+2*Math.sqrt(dispV[g]),h);g?ctx.lineTo(x,y):ctx.moveTo(x,y);}
+      for(let g=GRID-1;g>=0;g--){const x=PX(gx[g],w),y=PY(dispM[g]-2*Math.sqrt(dispV[g]),h);ctx.lineTo(x,y);}
+      ctx.closePath();ctx.fillStyle=navy(.12);ctx.fill();
+      ctx.setLineDash([4*DPR,4*DPR]);ctx.lineWidth=1.2*DPR;ctx.strokeStyle='rgba(0,0,0,.45)';ctx.beginPath();
+      for(let g=0;g<GRID;g++){const x=PX(gx[g],w),y=PY(trueF(gx[g]),h);g?ctx.lineTo(x,y):ctx.moveTo(x,y);}ctx.stroke();ctx.setLineDash([]);
+      ctx.lineWidth=2*DPR;ctx.strokeStyle=navy(.85);ctx.beginPath();
+      for(let g=0;g<GRID;g++){const x=PX(gx[g],w),y=PY(dispM[g],h);g?ctx.lineTo(x,y):ctx.moveTo(x,y);}ctx.stroke();
+      const baseY=h-30*DPR;let mv=1e-6;for(let g=0;g<GRID;g++)mv=Math.max(mv,dispV[g]);
+      ctx.lineWidth=1*DPR;ctx.strokeStyle=navy(.30);ctx.beginPath();
+      for(let g=0;g<GRID;g++){const x=PX(gx[g],w),y=baseY-(dispV[g]/mv)*22*DPR;g?ctx.lineTo(x,y):ctx.moveTo(x,y);}ctx.stroke();
+      pick();const nx=PX(nextX,w);
+      ctx.strokeStyle=navy(.45);ctx.setLineDash([2*DPR,3*DPR]);ctx.lineWidth=1*DPR;
+      ctx.beginPath();ctx.moveTo(nx,16*DPR);ctx.lineTo(nx,baseY);ctx.stroke();ctx.setLineDash([]);
+      ctx.fillStyle=navy(.9);ctx.beginPath();ctx.moveTo(nx,16*DPR);ctx.lineTo(nx-4*DPR,8*DPR);ctx.lineTo(nx+4*DPR,8*DPR);ctx.closePath();ctx.fill();
+      for(let i=0;i<xs.length;i++){const x=PX(xs[i],w),y=PY(ys[i],h);ctx.beginPath();ctx.arc(x,y,4*DPR,0,Math.PI*2);ctx.fillStyle='#fff';ctx.fill();ctx.lineWidth=1.6*DPR;ctx.strokeStyle=navy(1);ctx.stroke();}
+      ctx.font=`${10*DPR}px ui-monospace,Menlo,monospace`;ctx.textBaseline='alphabetic';
+      ctx.textAlign='left';ctx.fillStyle=CFG.muted;ctx.fillText('model uncertainty',padL(w),baseY+16*DPR);
+      ctx.textAlign='right';ctx.fillStyle=navy(.85);ctx.fillText(`${xs.length} experiments`,w-22*DPR,baseY+16*DPR);}
+    size(); start();
+    const onResize=cb=>new ResizeObserver(()=>{ if(cv.clientWidth) cb(); }).observe(cv);   // orientation + URL-bar reflow, guarded against zero-size
+    if(REDUCE){ while(xs.length<MAXPTS) sample(); dispM=Float64Array.from(post.mean); dispV=Float64Array.from(post.varr); draw();
+      onResize(()=>{ size(); draw(); }); return; }
+    gateRAF(cv, ()=>{ tAcc++; if(xs.length<MAXPTS){ if(tAcc%CFG.framesPerSample===0) sample(); } else { hold++; if(hold>CFG.holdFrames) start(); } draw(); });
+    onResize(()=>size());
+  }
+
+  const FEATURED = PROJECTS[0], PAST = PROJECTS.slice(1);
+  document.getElementById('pwc').textContent = String(PAST.length).padStart(2,'0');
+  const safeMount=(fn,node)=>{ try{ fn(); }catch(err){ const c=node.querySelector('canvas'); if(c) phFail(c,'unavailable'); } };
+
+  /* ── NOW: the current-work block gets full attention and mounts immediately ── */
+  (function(){
+    const p=FEATURED, block=div('feature reveal');
+    const fig=div('figure'); const {node,mount}=buildMedia(p); fig.appendChild(node);
+    const text=div('text');
+    text.innerHTML=`<div class="idx"><span class="n">${p.n}</span><span class="y">${p.year}</span></div>
+      <h3>${p.title}</h3><p class="write">${p.write}</p>${p.stat?`<div class="stat">${p.stat}</div>`:''}${linksHTML(p)}`;
+    block.append(fig,text); nowEl.appendChild(block);
+    requestAnimationFrame(()=>safeMount(mount,node));
+  })();
+
+  /* ── PAST: compact rows; the demo mounts + plays only when the row is expanded ── */
+  PAST.forEach(p=>{
+    const item=div('past reveal');
+    const head=document.createElement('button'); head.type='button'; head.className='past-head'; head.setAttribute('aria-expanded','false');
+    head.innerHTML=`<span class="n">${p.n}</span>`
+      +`<span class="head-main"><span class="ttl-row"><span class="ttl">${p.title}</span><span class="yr">${p.year}</span></span>`
+      +`<span class="blurb">${p.short||''}</span></span>`
+      +`<span class="mini">${p.thumb?`<img src="${p.thumb}" alt="" loading="lazy" decoding="async" onerror="this.style.display='none'">`:''}</span>`
+      +`<span class="chev" aria-hidden="true"></span>`;
+    const detail=div('past-detail'), inner=div('past-inner'), body=div('past-body');
+    const fig=div('figure'); const {node,mount}=buildMedia(p); fig.appendChild(node);
+    const text=div('text');
+    text.innerHTML=`<p class="write">${p.write}</p>${p.stat?`<div class="stat">${p.stat}</div>`:''}${linksHTML(p)}`;
+    body.append(fig,text); inner.appendChild(body); detail.appendChild(inner);
+    item.append(head,detail); pastEl.appendChild(item);
+
+    let mounted=false, vid=null;
+    const doMount=()=>{ if(mounted) return; mounted=true; safeMount(mount,node); vid=node.querySelector('video'); };
+    head.addEventListener('click',()=>{
+      const open=item.classList.toggle('open');
+      head.setAttribute('aria-expanded', open?'true':'false');
+      if(open){
+        if(!mounted){ detail.addEventListener('transitionend',doMount,{once:true}); setTimeout(doMount,480); }   // mount after the expand settles (real size)
+        else if(vid && !REDUCE){ const pp=vid.play(); if(pp) pp.catch(()=>{}); }
+      } else if(vid){ vid.pause(); }
+    });
+  });
+
+  /* scroll-reveal (featured + past rows) — content must NEVER stay stuck at opacity:0 */
+  const reveal=el=>el.classList.add('in');
+  const revealAll=()=>document.querySelectorAll('.reveal:not(.in)').forEach(reveal);
+  if('IntersectionObserver' in window){
+    const io=new IntersectionObserver(es=>{es.forEach(en=>{ if(en.isIntersecting){ reveal(en.target); io.unobserve(en.target); }});},{threshold:.1, rootMargin:'0px 0px -6% 0px'});
+    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+    setTimeout(revealAll,1500);
+    addEventListener('load',()=>setTimeout(revealAll,300));
+  } else revealAll();
   </script>
-  <!-- End MailerLite Universal -->
-
+  <script src="js/reveal.js"></script>
 </body>
-
 </html>
