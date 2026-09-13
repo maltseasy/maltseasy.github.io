@@ -1,4 +1,4 @@
-/* reveal.js — headings materialize from grain: a nod to guided discrete diffusion.
+/* reveal.js: headings materialize from grain, a nod to guided discrete diffusion.
    Replaces the old CRT scanline + glitch. Each heading is revealed ONCE (on load or
    when scrolled into view) by a real threshold-dissolve of fine noise; the actual DOM
    text stays in place for accessibility and is only hidden during the ~0.8s reveal.
@@ -6,13 +6,13 @@
 (function () {
   "use strict";
 
-  /* ═══ TWEAK HERE — every knob for the denoise reveal ═══════════════════════ */
+  /* ═══ TWEAK HERE: every knob for the denoise reveal ═══════════════════════ */
   const CFG = {
     selector: '.mast .who h1, .kicker h2', // headings that denoise in (single-line only)
     duration: 1000,    // ms of one reveal
-    blurStart: 5,      // px blur at t=0 (eases to 0) — bigger = softer emergence
-    grainPx: 3,        // noise cell size in CSS px — bigger = chunkier grain
-    edge: 0.16,        // soft threshold band (0..0.5) — bigger = smoother dissolve
+    blurStart: 5,      // px blur at t=0 (eases to 0); bigger = softer emergence
+    grainPx: 3,        // noise cell size in CSS px; bigger = chunkier grain
+    edge: 0.16,        // soft threshold band (0..0.5); bigger = smoother dissolve
     stagger: 95,       // ms between reveals that fire in the same batch
     threshold: 0.55,   // fraction of the heading visible before it triggers
   };
@@ -31,7 +31,7 @@
     if (el._revealed) return;
     const rect = el.getBoundingClientRect();
     const w = Math.ceil(rect.width), h = Math.ceil(rect.height);
-    if (w < 2 || h < 2) {                             // not laid out yet — retry, don't burn the one shot
+    if (w < 2 || h < 2) {                             // not laid out yet; retry, don't burn the one shot
       requestAnimationFrame(function () { reveal(el, delay); }); return;
     }
     el._revealed = true;
@@ -44,7 +44,9 @@
     // crisp text rendered once to an offscreen buffer
     const off = document.createElement('canvas'); off.width = w * DPR; off.height = h * DPR;
     const oc = off.getContext('2d'); oc.scale(DPR, DPR);
-    oc.font = `${cs.fontStyle} ${cs.fontWeight} ${cs.fontSize} ${cs.fontFamily}`;
+    // font-variant must be carried over or small-caps headings redraw as lowercase
+    // at the wrong width, which visibly jumps when the DOM text takes back over
+    oc.font = `${cs.fontStyle} ${cs.fontVariantCaps} ${cs.fontWeight} ${cs.fontSize} ${cs.fontFamily}`;
     try { if ('letterSpacing' in oc) oc.letterSpacing = cs.letterSpacing; } catch (e) {}
     oc.textBaseline = 'top'; oc.fillStyle = cs.color;
     oc.fillText(text, 0, Math.max(0, (lh - fs) / 2) - fs * 0.08);

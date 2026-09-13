@@ -46,24 +46,35 @@
           <a href="mailto:aryanmisra4@gmail.com">mail</a>
         </nav>
       </div>
-      <p class="intro"><b>Machine learning for RNA therapeutics</b>: generative sequence models, differentiable folding, and Bayesian inference. Before that, a crypto order-book exchange, molecular generation, and image super-resolution.</p>
+      <p class="intro">I came to machine learning through <b>mathematics and statistics</b>, which I read as an
+        undergraduate at the University of Toronto. My research is on RNA therapeutics: sequence
+        representation models, differentiable secondary-structure folding, and Bayesian inference for the
+        small, noisy datasets that wet-lab assays actually produce. Before this I built a crypto
+        order-book exchange, and worked on molecular generation and image super-resolution.</p>
     </header>
 
     <section>
-      <div class="kicker"><h2>Now</h2><span class="line"></span></div>
+      <!-- Two kinds of entry, two sections. Experience is keyed on role · org · year;
+           Projects are keyed on the artifact's own name. Same row component either
+           way (see ENTRIES + row() in the script); only the header text differs. -->
+      <div class="kicker"><h2>Experience</h2><span class="line"></span><span class="count" id="expc"></span></div>
       <div id="now"></div>
+      <div id="work"></div>
 
-      <div class="kicker"><h2>Past</h2><span class="line"></span><span class="count" id="pwc"></span></div>
-      <div id="past"></div>
-      <!-- keep in sync by hand with the PROJECTS array in the page script below -->
+      <div class="kicker"><h2>Projects</h2><span class="line"></span><span class="count" id="prjc"></span></div>
+      <div id="projects"></div>
+      <!-- keep in sync by hand with the ENTRIES array in the page script below -->
       <noscript>
         <div class="nojs">
-          <article><h3>RNA therapeutic design</h3><p class="y">since 2024</p><p>State-space sequence encoders for RNA representation, differentiable secondary-structure folding, and guided discrete diffusion for property-constrained sequence design. Hierarchical Bayesian models for sparse assay data.</p></article>
-          <article><h3>Bitswap</h3><p class="y">2021</p><p>Full order-book exchange for BitClout (DeSo). Price-time-priority matching engine: limit and market orders, partial fills, on-chain settlement between BitClout and Ethereum. Co-founder and CTO; open-sourced at wind-down.</p><p><a href="https://github.com/bitswap-network" rel="noopener">github</a>, <a href="https://github.com/bitswap-network/exchange-engine" rel="noopener">engine</a></p></article>
-          <article><h3>AscendBuild</h3><p class="y">2020</p><p>Real estate development search. Rental listings scraped across Craigslist, Zumper, and Kijiji, aggregated into building-level records with price-per-square-foot trends and developer comparables. Mapbox GL basemap with polygon-draw parcel search. The Next 36, Next Canada 2020.</p></article>
-          <article><h3>Synbiolic</h3><p class="y">2020</p><p>Generative model for small molecules. A variational autoencoder optimized for drug-likeness (QED), with IBM RXN predicting retrosynthetic routes. Microsoft Imagine Cup 2020, Americas runner-up.</p><p><a href="https://devpost.com/software/synbiolic" rel="noopener">read more</a></p></article>
-          <article><h3>Holy Grail</h3><p class="y">2020</p><p>Active learning for materials formulation at Holy Grail (YC S19). MC-dropout Bayesian network with a Bayesian-optimized architecture; permutation feature importance and variational optimal experiment design to choose the next formulation to run. Applied to bioplastics, concrete, brewing.</p></article>
-          <article><h3>NeuraScale</h3><p class="y">2019</p><p>Super-resolution GAN (SRGAN) trained on MS COCO. 2x upscaling at arbitrary resolution by tiling, super-resolving, and stitching past the network's fixed input size.</p><p><a href="https://github.com/maltseasy/NeuraScale" rel="noopener">github</a></p></article>
+          <h2>Experience</h2>
+          <article><h3>Kerna Labs</h3><p class="y">Machine learning intern · since 2024</p><p>Computational design of mRNA therapeutics: predict how long a transcript survives in the cell, then search for sequences that survive longer.</p><p>State-space encoder over whole transcripts for half-life regression; genome-aware cross-validation, ensembled. Discrete diffusion with classifier guidance for property-constrained generation. Folding energy and loop accessibility from ViennaRNA with modified-base parameters. Multi-objective search over coding sequence and 3&prime; UTR against codon pair bias, CpG content, and tissue-specific codon usage. Hierarchical Bayesian fits for assays that return a few hundred noisy points.</p></article>
+          <article><h3>Bitswap</h3><p class="y">Co-founder, CTO · 2021</p><p>Order-book exchange for BitClout (DeSo), bridging creator coins and Ethereum.</p><p>Built the price-time-priority matching engine: limit and market orders, partial fills, on-chain settlement across both chains. $3M+ volume, 6,000+ users. Open-sourced at wind-down.</p><p><a href="https://github.com/bitswap-network" rel="noopener">github</a>, <a href="https://github.com/bitswap-network/exchange-engine" rel="noopener">engine</a></p></article>
+          <article><h3>AscendBuild</h3><p class="y">Co-founder · 2020</p><p>Search tool for real estate developers: which parcels are worth building on, and what comparable buildings rent for.</p><p>Scraped rental listings from Craigslist, Zumper, and Kijiji into building-level records with price-per-square-foot trends and developer comparables. Mapbox GL basemap; polygon-draw parcel search over turf point-in-polygon. The Next 36, Next Canada 2020.</p></article>
+          <article><h3>Holy Grail</h3><p class="y">Machine learning intern · 2020</p><p>Holy Grail (YC S19) formulates new materials with machine learning, where every data point is a physical experiment that takes days.</p><p>MC-dropout Bayesian network with a Bayesian-optimized architecture. Permutation feature importance for which inputs matter; variational optimal experiment design to choose the next formulation to run. Applied to bioplastics, concrete, brewing.</p></article>
+
+          <h2>Projects</h2>
+          <article><h3>Synbiolic</h3><p class="y">2020</p><p>Generative model for small molecules, with retrosynthesis attached so the outputs are actually makeable.</p><p>Variational autoencoder optimized for drug-likeness (QED); IBM RXN predicts a retrosynthetic route for each generated candidate. Microsoft Imagine Cup 2020, Americas runner-up.</p><p><a href="https://devpost.com/software/synbiolic" rel="noopener">read more</a></p></article>
+          <article><h3>NeuraScale</h3><p class="y">2019</p><p>Image super-resolution at arbitrary resolution, past the fixed input size a GAN will accept.</p><p>SRGAN trained on MS COCO. 2x upscaling by tiling the input, super-resolving each tile, and stitching the results back together.</p><p><a href="https://github.com/maltseasy/NeuraScale" rel="noopener">github</a></p></article>
         </div>
       </noscript>
 
@@ -72,12 +83,14 @@
         <span class="t">Elements of Analysis (MAT336)</span><span class="t">Complex Variables (MAT334)</span><span class="t">Combinatorics (MAT344)</span><span class="t">Probability (STA347)</span><span class="t">Stochastic Processes (STA447)</span><span class="t">Mathematical Statistics (STA453)</span><span class="t">Applied Bayesian Statistics (STA365)</span><span class="t">Methods of Data Analysis (STA302)</span>
       </div>
 
+      <!-- Writing: hidden for now. Uncomment to bring the section back.
       <div class="kicker"><h2>Writing</h2><span class="line"></span></div>
       <ul class="writing">
         <li><a href="https://towardsdatascience.com/the-end-to-all-blurry-pictures-f27e49f23588?source=friends_link&sk=c73eb6f866a486d77b81c8bccfd4a8a7" target="_blank" rel="noopener">Image super-resolution</a><span class="src">Towards Data Science</span></li>
         <li><a href="https://medium.com/@aryanmisra/the-protein-folding-problem-dfa49030f775?source=friends_link&sk=3d23fdf4ee548f17b8ba6d8f173bdfbf" target="_blank" rel="noopener">Protein folding</a><span class="src">Medium</span></li>
         <li><a href="https://towardsdatascience.com/capsule-networks-the-new-deep-learning-network-bd917e6818e8?source=friends_link&sk=038cc423f0e6c1c2e5849e60412fc806" target="_blank" rel="noopener">Capsule networks</a><span class="src">Towards Data Science</span></li>
       </ul>
+      -->
 
       <pre class="ascii" aria-hidden="true">                               ____________
                             __/ ///////// /|
@@ -99,7 +112,7 @@
 
   <script>
   /* page script, top to bottom:
-     helpers (gateRAF) → media builders dispatched by PROJECTS type
+     helpers (gateRAF) → media builders dispatched by ENTRIES media type
      (video / gallery / srslider / al / fold) → RNA fold demo (Nussinov
      fold + hill-climb + physics) → Now section render → Past accordion
      → banner parallax → card scroll-reveal.
@@ -114,29 +127,38 @@
   }
 
   /* current → oldest */
-  const PROJECTS = [
-    { title:'RNA therapeutic design', year:'since 2024', n:'01',
-      write:'State-space sequence encoders for RNA representation, differentiable secondary-structure folding, and guided discrete diffusion for property-constrained sequence design. Hierarchical Bayesian models for sparse assay data.',
+  /* ENTRIES: one list, two kinds.
+       kind:'work'    -> header reads "role · org";  heading in the body is the org.
+       kind:'project' -> header reads the artifact's name; no role line.
+     Body copy is always two parts: `what` introduces the thing in one line,
+     `did` is the technical jots for what the involvement actually was. */
+  const ENTRIES = [
+    { kind:'work', org:'Kerna Labs', role:'Machine learning intern', year:'since 2024',
+      what:'Computational design of mRNA therapeutics: predict how long a transcript survives in the cell, then search for sequences that survive longer.',
+      did:'State-space encoder over whole transcripts for half-life regression; genome-aware cross-validation, ensembled. Discrete diffusion with classifier guidance for property-constrained generation. Folding energy and loop accessibility from ViennaRNA with modified-base parameters. Multi-objective search over coding sequence and 3&prime; UTR against codon pair bias, CpG content, and tissue-specific codon usage. Hierarchical Bayesian fits for assays that return a few hundred noisy points.',
       links:[],
-      media:{type:'fold', mat:true, label:'sequence → fold'} },
+      media:{type:'fold', mat:true, label:''} },
 
-    { title:'Bitswap', year:'2021', n:'02',
-      short:'Order-book exchange for BitClout. Co-founder and CTO.', thumb:'assets/bitswap-poster.jpg',
-      write:'Full order-book exchange for BitClout (DeSo). Price-time-priority matching engine: limit and market orders, partial fills, on-chain settlement between BitClout and Ethereum. Co-founder and CTO; open-sourced at wind-down.',
+    { kind:'work', org:'Bitswap', role:'Co-founder, CTO', year:'2021',
+      short:'Order-book exchange bridging BitClout creator coins and Ethereum.', thumb:'assets/bitswap-poster.jpg',
+      what:'Order-book exchange for BitClout (DeSo), bridging creator coins and Ethereum.',
+      did:'Built the price-time-priority matching engine: limit and market orders, partial fills, on-chain settlement across both chains. Open-sourced at wind-down.',
       stat:'<b>$3M+</b> volume · <b>6,000+</b> users',
       links:[{l:'github',h:'https://github.com/bitswap-network'},{l:'engine',h:'https://github.com/bitswap-network/exchange-engine'},{l:'new yorker',h:'https://www.newyorker.com/tech/annals-of-technology/the-dark-democratizing-power-of-the-social-media-stock-market'}],
       media:{type:'video', src:'assets/bitswap-loop.mp4', poster:'assets/bitswap-poster.jpg', corner:'bitswap.network'} },
 
-    { title:'AscendBuild', year:'2020', n:'03',
-      short:'Real estate development search over scraped rental listings.', thumb:'assets/ascend-poster.jpg',
-      write:'Real estate development search. Rental listings scraped across Craigslist, Zumper, and Kijiji, aggregated into building-level records with price-per-square-foot trends and developer comparables. Mapbox GL basemap with polygon-draw parcel search (turf point-in-polygon).',
+    { kind:'work', org:'AscendBuild', role:'Co-founder', year:'2020',
+      short:'Parcel and comparables search for real estate developers.', thumb:'assets/ascend-poster.jpg',
+      what:'Search tool for real estate developers: which parcels are worth building on, and what comparable buildings rent for.',
+      did:'Scraped rental listings from Craigslist, Zumper, and Kijiji into building-level records with price-per-square-foot trends and developer comparables. Mapbox GL basemap; polygon-draw parcel search over turf point-in-polygon.',
       stat:'The Next 36 · Next Canada 2020',
       links:[{l:'next canada',h:'https://www.nextcanada.com/next-36/'}],
       media:{type:'video', src:'assets/ascend-loop.mp4', poster:'assets/ascend-poster.jpg', corner:'ascendbuild'} },
 
-    { title:'Synbiolic', year:'2020', n:'04',
-      short:'Generative VAE for small molecules, optimized for drug-likeness.', thumb:'https://raw.githubusercontent.com/wlawt/synbiolic/master/client/src/components/img/generate.png',
-      write:'Generative model for small molecules. A variational autoencoder optimized for drug-likeness (QED), with IBM RXN predicting retrosynthetic routes.',
+    { kind:'project', name:'Synbiolic', year:'2020',
+      short:'Generative model for small molecules, with retrosynthesis attached.', thumb:'https://raw.githubusercontent.com/wlawt/synbiolic/master/client/src/components/img/generate.png',
+      what:'Generative model for small molecules, with retrosynthesis attached so the outputs are actually makeable.',
+      did:'Variational autoencoder optimized for drug-likeness (QED); IBM RXN predicts a retrosynthetic route for each generated candidate.',
       stat:'Microsoft Imagine Cup ’20, Americas runner-up',
       links:[{l:'read more',h:'https://devpost.com/software/synbiolic'},{l:'landing',h:'https://synbiolicai.netlify.app/'},{l:'pitch',h:'https://www.youtube.com/watch?v=OUDGOfMDOi0'}],
       media:{type:'gallery', mat:true,
@@ -144,33 +166,35 @@
                 'https://raw.githubusercontent.com/wlawt/synbiolic/master/client/src/components/img/retro.png'],
         captions:['generate · pIC50 distribution','retrosynthesis pathway']} },
 
-    { title:'Holy Grail', year:'2020', n:'05',
-      short:'Bayesian active learning and optimal experiment design for materials.', thumb:'assets/al-poster.jpg',
-      write:'Active learning for materials formulation at Holy Grail (YC S19). MC-dropout Bayesian network with a Bayesian-optimized architecture; permutation feature importance and variational optimal experiment design to choose the next formulation to run. Applied to bioplastics, concrete, brewing.',
+    { kind:'work', org:'Holy Grail', role:'Machine learning intern', year:'2020',
+      short:'Active learning for materials formulation.', thumb:'assets/al-poster.jpg',
+      what:'Holy Grail (YC S19) formulates new materials with machine learning, where every data point is a physical experiment that takes days.',
+      did:'MC-dropout Bayesian network with a Bayesian-optimized architecture. Permutation feature importance for which inputs matter; variational optimal experiment design to choose the next formulation to run. Applied to bioplastics, concrete, brewing.',
       links:[],
       media:{type:'al', label:'active learning · OED'} },
 
-    { title:'NeuraScale', year:'2019', n:'06',
-      short:'Super-resolution GAN. 2× upscaling at arbitrary resolution.', thumb:'assets/neura_after.png',
-      write:'Super-resolution GAN (SRGAN) trained on MS COCO. 2× upscaling at arbitrary resolution by tiling, super-resolving, and stitching past the network’s fixed input size. Drag to compare.',
+    { kind:'project', name:'NeuraScale', year:'2019',
+      short:'Super-resolution past the network’s fixed input size.', thumb:'assets/neura_after.png',
+      what:'Image super-resolution at arbitrary resolution, past the fixed input size a GAN will accept.',
+      did:'SRGAN trained on MS COCO. 2× upscaling by tiling the input, super-resolving each tile, and stitching the results back together. Drag to compare.',
       stat:'<a href="https://tensorflow.devpost.com/" target="_blank" rel="noopener">tensorflow 2.0 challenge</a>',
       links:[{l:'github',h:'https://github.com/maltseasy/NeuraScale'},{l:'video',h:'https://youtu.be/MGCR36iL_JM'},{l:'read more',h:'https://devpost.com/software/neurascale'}],
       media:{type:'srslider', before:'assets/neura_before.png', after:'assets/neura_after.png'} },
   ];
 
-  const nowEl=document.getElementById('now'), pastEl=document.getElementById('past');
+  const nowEl=document.getElementById('now'), workEl=document.getElementById('work'), prjEl=document.getElementById('projects');
   const div=c=>{const d=document.createElement('div'); if(c)d.className=c; return d;};
   window.phFail=(el,t)=>{const d=div('ph'); d.textContent=t||'unavailable'; el.replaceWith(d);};
   const linksHTML=p=>p.links.length?`<div class="links">${p.links.map(l=>`<a href="${l.h}" target="_blank" rel="noopener">${l.l}</a>`).join('<span class="d">·</span>')}</div>`:'';
 
-  /* returns {node, mount} — node is appended directly into .figure */
+  /* returns {node, mount}; node is appended directly into .figure */
   function buildMedia(p){
     const m=p.media;
     const thumb=div('thumb'+(m.mat?' mat':'')+(m.type==='fold'?' tall':''));
     let root, mount=()=>{};
     if(m.type==='video'){
       root=div('mroot frame');
-      root.innerHTML=`<video src="${m.src}" poster="${m.poster}" width="1280" height="720" loop muted playsinline preload="none" aria-label="${p.title} product demo"></video><span class="vtint" aria-hidden="true"></span>`
+      root.innerHTML=`<video src="${m.src}" poster="${m.poster}" width="1280" height="720" loop muted playsinline preload="none" aria-label="${heading(p)} product demo"></video><span class="vtint" aria-hidden="true"></span>`
         +(m.corner?`<span class="corner">${m.corner}</span>`:'')
         +`<button class="vtoggle" type="button" aria-label="Pause demo">❚❚</button>`;
       mount=()=>{ const v=root.querySelector('video'), btn=root.querySelector('.vtoggle');
@@ -215,7 +239,7 @@
     new IntersectionObserver(es=>{ if(es[0].isIntersecting){ if(!id) id=setInterval(adv,2800); } else { if(id){ clearInterval(id); id=null; } } },{threshold:0}).observe(root);
   }
 
-  /* ── bespoke: REAL RNA fold — Nussinov base-pairing + hill-climb + physics ── */
+  /* ── bespoke: REAL RNA fold; Nussinov base-pairing + hill-climb + physics ── */
   const _A='AUGC', rnB=()=>_A[Math.random()*4|0], _canPair=(x,y)=>{const s=x+y; return s==='AU'||s==='UA'||s==='GC'||s==='CG'||s==='GU'||s==='UG';};
   function _fold(seq){
     const n=seq.length, MIN=3, M=Array.from({length:n},()=>new Int16Array(n));
@@ -235,7 +259,7 @@
     let best={seq:seq, pair:_fold(seq)}; best.sc=_score(best.seq,best.pair);
     let step=0, stale=0; const MAX=300, probes=[], PCAP=160;   // probes: recent REAL candidate evaluations, for the search cloud
     return { get seq(){return best.seq;}, get pair(){return best.pair;}, get sc(){return best.sc;}, get step(){return step;}, get probes(){return probes;}, MAX,
-      tick(){ if(step>=MAX||stale>40) return false;            // one mutation per tick — slower, clearer ascent
+      tick(){ if(step>=MAX||stale>40) return false;            // one mutation per tick; slower, clearer ascent
         step++; const c=best.seq.slice(), p=Math.random()*N|0; c[p]=rnB();
         const cp=_fold(c), cs=_score(c,cp);
         const acc = cs.val>best.sc.val || (Math.random()<0.04*(1-step/MAX) && cs.val>=best.sc.val-0.6);
@@ -246,7 +270,7 @@
   /* fold floating above its REAL fitness landscape; a marker hill-climbs the surface to the peak */
   function mountFold(cv){
     /* ═══════════════════════════════════════════════════════════════════════
-       TWEAK HERE — every knob for this widget (RNA fold + 3D fitness surface).
+       TWEAK HERE: every knob for this widget (RNA fold + 3D fitness surface).
        Edit a value and refresh. Nothing else needs touching.
        ═══════════════════════════════════════════════════════════════════════ */
     const CFG = {
@@ -256,7 +280,7 @@
       smoothPasses:   1,      // smoothing of the real score field (0 = rugged spikes, more = rounder hills)
 
       // ── timing ────────────────────────────────────────────────────────
-      framesPerStep:  48,     // frames the marker takes to cross one grid cell — HIGHER = slower climb
+      framesPerStep:  48,     // frames the marker takes to cross one grid cell; HIGHER = slower climb
       holdFrames:     150,    // frames paused at the peak before a new landscape is generated
 
       // ── rotation ──────────────────────────────────────────────────────
@@ -268,7 +292,7 @@
       surfaceY:       0.85,   // surface center y  → moves the whole landscape up/down
       surfaceWidth:   0.46,   // horizontal scale
       surfaceDepth:   0.13,   // depth foreshortening (the tilt)
-      surfaceHeight:  0.27,   // vertical relief — bigger = taller, more dramatic hills
+      surfaceHeight:  0.27,   // vertical relief; bigger = taller, more dramatic hills
 
       // ── the RNA molecule floating above the surface ───────────────────
       foldY:          0.26,   // molecule's seed vertical position (fraction of height); higher = bigger gap to the surface
@@ -289,7 +313,7 @@
       bg:        '#fbfcff',   // canvas background
       letterAU:  '#1b1b1b',   // A / U letters
       letterGC:  '#022b6d',   // G / C letters
-      letterOff: '#767d8f',   // unpaired-base letters (4.1:1 on white — legible, was #aeb4c0 at 2.0:1)
+      letterOff: '#767d8f',   // unpaired-base letters (4.1:1 on white; legible, was #aeb4c0 at 2.0:1)
     };
     /* ═══════════════════════════════════════════════════════════════════════ */
     const navy = a => `rgba(${CFG.navyRGB},${a})`;
@@ -409,7 +433,7 @@
     new ResizeObserver(relayout).observe(cv);   // catches orientation change + mobile URL-bar reflow, not just window resize
   }
 
-  /* ── super-res slider — overlays two REAL registered images; selection-safe drag + keyboard ── */
+  /* ── super-res slider; overlays two REAL registered images; selection-safe drag + keyboard ── */
   function mountSR(root){
     const vtext=n=>Math.round(n)+'% super-resolution output revealed';
     const set=x=>{ const r=root.getBoundingClientRect(); const v=Math.max(1.5,Math.min(98.5,(x-r.left)/r.width*100));
@@ -427,14 +451,14 @@
       e.preventDefault(); setPct(v); });
   }
 
-  /* ── bespoke: REAL active learning — Gaussian-process fit + optimal-experiment-design loop ── */
+  /* ── bespoke: REAL active learning; Gaussian-process fit + optimal-experiment-design loop ── */
   function mountAL(cv){
     /* ═══════════════════════════════════════════════════════════════════════
-       TWEAK HERE — every knob for the active-learning / Gaussian-process widget.
+       TWEAK HERE: every knob for the active-learning / Gaussian-process widget.
        ═══════════════════════════════════════════════════════════════════════ */
     const CFG = {
       // ── Gaussian-process model ──────────────────────────────────────────
-      lengthscale:     0.10,   // RBF kernel length — smaller = wigglier fits
+      lengthscale:     0.10,   // RBF kernel length; smaller = wigglier fits
       signalVar:       1.0,    // kernel signal variance
       noiseJitter:     0.0009, // observation noise / numerical jitter
       gridRes:         110,    // x-resolution of the fitted curve
@@ -443,7 +467,7 @@
       yMax:            2.4,    // plot vertical range (high)
 
       // ── timing ──────────────────────────────────────────────────────────
-      framesPerSample: 70,     // frames between each new experiment — HIGHER = slower
+      framesPerSample: 70,     // frames between each new experiment; HIGHER = slower
       holdFrames:      150,    // frames held after the last experiment before restarting
       ease:            0.12,   // how fast the drawn band eases to the new fit (0..1)
 
@@ -452,7 +476,7 @@
 
       // ── palette ─────────────────────────────────────────────────────────
       navyRGB: '2,43,109',     // brand navy (band, mean curve, markers)
-      muted:   '#6b7280',      // axis labels (4.8:1 on white — was #8a90a0 at 3.2:1)
+      muted:   '#6b7280',      // axis labels (4.8:1 on white; was #8a90a0 at 3.2:1)
     };
     /* ═══════════════════════════════════════════════════════════════════════ */
     const navy = a => `rgba(${CFG.navyRGB},${a})`;
@@ -516,36 +540,47 @@
     onResize(()=>size());
   }
 
-  const FEATURED = PROJECTS[0], PAST = PROJECTS.slice(1);
-  document.getElementById('pwc').textContent = String(PAST.length).padStart(2,'0');
+  const WORK = ENTRIES.filter(p=>p.kind==='work'), PRJ = ENTRIES.filter(p=>p.kind==='project');
+  const FEATURED = WORK[0], WORK_ROWS = WORK.slice(1);
+  const pad = n => String(n).padStart(2,'0');
+  document.getElementById('expc').textContent = pad(WORK.length);
+  document.getElementById('prjc').textContent = pad(PRJ.length);
   const safeMount=(fn,node)=>{ try{ fn(); }catch(err){ const c=node.querySelector('canvas'); if(c) phFail(c,'unavailable'); } };
 
-  /* ── NOW: the current-work block gets full attention and mounts immediately ── */
+  /* the one place the two kinds diverge: what goes in the row header and the body
+     heading. Everything below treats work and project entries identically. */
+  const rowLabel = p => p.kind==='work'
+    ? `<span class="role">${p.role}</span><span class="d">·</span><span class="org">${p.org}</span>`
+    : `<span class="org">${p.name}</span>`;
+  const heading  = p => p.kind==='work' ? p.org : p.name;
+  const bodyHTML = p => `<p class="what">${p.what}</p><p class="did">${p.did}</p>`
+    + (p.stat?`<div class="stat">${p.stat}</div>`:'') + linksHTML(p);
+
+  /* ── the current role gets the full-width block and mounts immediately ── */
   (function(){
     const p=FEATURED, block=div('feature reveal');
     const fig=div('figure'); const {node,mount}=buildMedia(p); fig.appendChild(node);
     const text=div('text');
-    text.innerHTML=`<div class="idx"><span class="n">${p.n}</span><span class="y">${p.year}</span></div>
-      <h3>${p.title}</h3><p class="write">${p.write}</p>${p.stat?`<div class="stat">${p.stat}</div>`:''}${linksHTML(p)}`;
+    text.innerHTML=`<div class="idx"><span class="n">${p.role}</span><span class="y">${p.year}</span></div>
+      <h3>${heading(p)}</h3>${bodyHTML(p)}`;
     block.append(fig,text); nowEl.appendChild(block);
     requestAnimationFrame(()=>safeMount(mount,node));
   })();
 
-  /* ── PAST: compact rows; the demo mounts + plays only when the row is expanded ── */
-  PAST.forEach(p=>{
+  /* ── collapsed rows; the demo mounts + plays only when the row is expanded ── */
+  const row = (p, host) => {
     const item=div('past reveal');
     const head=document.createElement('button'); head.type='button'; head.className='past-head'; head.setAttribute('aria-expanded','false');
-    head.innerHTML=`<span class="n">${p.n}</span>`
-      +`<span class="head-main"><span class="ttl-row"><span class="ttl">${p.title}</span><span class="yr">${p.year}</span></span>`
+    head.innerHTML=`<span class="head-main"><span class="ttl-row"><span class="ttl">${rowLabel(p)}</span><span class="yr">${p.year}</span></span>`
       +`<span class="blurb">${p.short||''}</span></span>`
       +`<span class="mini">${p.thumb?`<img src="${p.thumb}" alt="" loading="lazy" decoding="async" onerror="this.style.display='none'">`:''}</span>`
       +`<span class="chev" aria-hidden="true"></span>`;
     const detail=div('past-detail'), inner=div('past-inner'), body=div('past-body');
     const fig=div('figure'); const {node,mount}=buildMedia(p); fig.appendChild(node);
     const text=div('text');
-    text.innerHTML=`<p class="write">${p.write}</p>${p.stat?`<div class="stat">${p.stat}</div>`:''}${linksHTML(p)}`;
+    text.innerHTML=bodyHTML(p);
     body.append(fig,text); inner.appendChild(body); detail.appendChild(inner);
-    item.append(head,detail); pastEl.appendChild(item);
+    item.append(head,detail); host.appendChild(item);
 
     let mounted=false, vid=null;
     const doMount=()=>{ if(mounted) return; mounted=true; safeMount(mount,node); vid=node.querySelector('video'); };
@@ -557,12 +592,14 @@
         else if(vid && !REDUCE){ const pp=vid.play(); if(pp) pp.catch(()=>{}); }
       } else if(vid){ vid.pause(); }
     });
-  });
+  };
+  WORK_ROWS.forEach(p=>row(p,workEl));
+  PRJ.forEach(p=>row(p,prjEl));
 
-  /* banner parallax — pan the header photo down as the page scrolls, revealing a
+  /* banner parallax: pan the header photo down as the page scrolls, revealing a
      different part of it. Drives --bpan, which showcase.css adds to both banner
      layers' background-position; capped so the pan can't run past the photo edge.
-     Only the first ~200px of scroll matters — the banner is gone by then. */
+     Only the first ~200px of scroll matters; the banner is gone by then. */
   const banner=document.querySelector('.banner');
   if(banner && !REDUCE){
     let bTick=false, bY=0;
@@ -570,7 +607,7 @@
     addEventListener('scroll',()=>{ bY=pageYOffset||0; if(!bTick){ bTick=true; requestAnimationFrame(pan); } },{passive:true});
   }
 
-  /* card scroll-reveal (featured + past rows) — toggles .in on .reveal blocks; content
+  /* card scroll-reveal (featured + past rows); toggles .in on .reveal blocks; content
      must NEVER stay stuck at opacity:0. unrelated to js/reveal.js, which is the
      canvas grain-dissolve for headings. */
   const reveal=el=>el.classList.add('in');
