@@ -57,11 +57,11 @@
       <!-- Two kinds of entry, two sections. Experience is keyed on role · org · year;
            Projects are keyed on the artifact's own name. Same row component either
            way (see ENTRIES + row() in the script); only the header text differs. -->
-      <div class="kicker"><h2>Experience</h2><span class="line"></span><span class="count" id="expc"></span></div>
+      <div class="kicker"><h2>Experience</h2><span class="line"></span></div>
       <div id="now"></div>
       <div id="work"></div>
 
-      <div class="kicker"><h2>Projects</h2><span class="line"></span><span class="count" id="prjc"></span></div>
+      <div class="kicker"><h2>Projects</h2><span class="line"></span></div>
       <div id="projects"></div>
       <!-- keep in sync by hand with the ENTRIES array in the page script below -->
       <noscript>
@@ -542,9 +542,6 @@
 
   const WORK = ENTRIES.filter(p=>p.kind==='work'), PRJ = ENTRIES.filter(p=>p.kind==='project');
   const FEATURED = WORK[0], WORK_ROWS = WORK.slice(1);
-  const pad = n => String(n).padStart(2,'0');
-  document.getElementById('expc').textContent = pad(WORK.length);
-  document.getElementById('prjc').textContent = pad(PRJ.length);
   const safeMount=(fn,node)=>{ try{ fn(); }catch(err){ const c=node.querySelector('canvas'); if(c) phFail(c,'unavailable'); } };
 
   /* the one place the two kinds diverge: what goes in the row header and the body

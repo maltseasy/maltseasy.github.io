@@ -9,7 +9,7 @@
   --ink:#1b1b1b;          /* body text */
   --soft:#2c2c2c;         /* secondary text */
   --muted:#6c6c6c;        /* labels, captions (4.5:1 on paper) */
-  --faint-ink:#6b7280;    /* faint meta / counts (4.8:1; was #9aa0ac, failed AA) */
+  --faint-ink:#6b7280;    /* chevrons, dot separators, placeholders (4.8:1; was #9aa0ac, failed AA) */
   --navy:#022b6d;         /* brand navy (solid) */
   --navy-rgb:2,43,109;    /* same navy as r,g,b for rgba() and canvas */
   --navy-soft:#385a93;
@@ -26,7 +26,7 @@
   --fs-body:17px;         /* body / list text */
   --fs-write:16.5px;      /* project writeups */
   --fs-sm:15.5px;         /* coursework tags */
-  --fs-2xs:11px;          /* stats, meta, counts */
+  --fs-2xs:11px;          /* stats, meta */
   --fs-label:10.5px;      /* uppercase mono labels (corner/year/tag/src) */
   /* fluid display sizes are set inline with clamp() at their rules */
 
@@ -101,7 +101,6 @@ a:focus-visible{ outline:2px solid var(--navy); outline-offset:2px; border-radiu
 .kicker h2{ font-family:var(--serif); font-size:16px; font-weight:normal; color:var(--navy);
   font-variant-caps:small-caps; letter-spacing:var(--track-label); margin:0; white-space:nowrap; }
 .kicker .line{ height:1px; background:var(--ink); flex:1; opacity:.85; }
-.kicker .count{ font-family:var(--serif); font-size:13px; font-style:italic; color:var(--faint-ink); }
 
 /* no-JS fallback: plain-text Experience + Projects list (renders only when JS is off) */
 .nojs h2{ font-family:var(--serif); font-size:16px; font-weight:normal; color:var(--navy);
