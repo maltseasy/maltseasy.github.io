@@ -15,18 +15,19 @@
     
   </title>
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="/public/css/poole.css">
-  <link rel="stylesheet" href="/public/css/syntax.css">
-  <link rel="stylesheet" href="/public/css/hyde.css">
-  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+  <!-- CSS — root-absolute on purpose: this page is served for arbitrary URLs,
+       so relative paths would break. Everything lives under /blog/. -->
+  <link rel="stylesheet" href="/blog/public/css/poole.css">
+  <link rel="stylesheet" href="/blog/public/css/syntax.css">
+  <link rel="stylesheet" href="/blog/public/css/hyde.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
 
   <!-- Icons -->
-  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-144-precomposed.png">
-                                 <link rel="shortcut icon" href="/public/favicon.ico">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/blog/public/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/icons/favicon.ico">
 
   <!-- RSS -->
-  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/blog/atom.xml">
 
   <!-- Google Analytics -->
   <script>
@@ -45,16 +46,16 @@
     <div class="sidebar">
   <div class="container sidebar-sticky">
     <div class="sidebar-about">
-      <h1>
-        <a href="/">
-          Hyde
-        </a>
-      </h1>
-      <p class="lead">A brazen two-column <a href="http://jekyllrb.com" target="_blank">Jekyll</a> theme that pairs a prominent sidebar with uncomplicated content. Made by <a href="https://twitter.com/mdo" target="_blank">@mdo</a>.</p>
+      <h1><a href="/blog/">blog</a></h1>
+      <p class="lead">accounts of my experiences and learnings, compiled into short essays</p>
     </div>
 
     <nav class="sidebar-nav">
-      <a class="sidebar-nav-item" href="/">Home</a>
+      <a class="sidebar-nav-item" href="/">Back to aryanmisra.com</a>
+      <a class="sidebar-nav-item" href="/blog/">home</a>
+      <a class="sidebar-nav-item" href="/blog/thoughts/">thoughts</a>
+      <a class="sidebar-nav-item" href="/blog/learnings/">learnings</a>
+      <a class="sidebar-nav-item" href="/blog/tech/">tech</a>
 
       
 
@@ -66,7 +67,6 @@
       
         
           
-            <a class="sidebar-nav-item" href="/about/">About</a>
           
         
       
@@ -77,12 +77,7 @@
         
       
 
-      <a class="sidebar-nav-item" href="https://github.com/poole/hyde/archive/v2.1.0.zip">Download</a>
-      <a class="sidebar-nav-item" href="https://github.com/poole/hyde">GitHub project</a>
-      <span class="sidebar-nav-item">Currently v2.1.0</span>
     </nav>
-
-    <p>&copy; 2015. All rights reserved.</p>
   </div>
 </div>
 
@@ -90,7 +85,7 @@
     <div class="content container">
       <div class="page">
   <h1 class="page-title">404: Page not found</h1>
-  <p class="lead">Sorry, we've misplaced that URL or it's pointing to something that doesn't exist. <a href="/">Head back home</a> to try finding it again.</p>
+  <p class="lead">Sorry, we've misplaced that URL or it's pointing to something that doesn't exist. <a href="/blog/">Head back home</a> to try finding it again.</p>
 </div>
 
     </div>
