@@ -63,27 +63,30 @@ a:focus-visible{ outline:2px solid var(--navy); outline-offset:2px; border-radiu
 .wrap{ max-width:1080px; margin:0 auto; padding:0 clamp(20px,4vw,48px) clamp(80px,10vh,120px); }
 
 /* ── banner + masthead ────────────────────────────────── */
-/* Height comes from the banner's OWN width via aspect-ratio, not from vw — the
-   banner is capped at .wrap's max-width, so a vw-based height drifts out of
-   proportion on wide monitors. 27/4 gives the same 160px at full 1080px width.
-   The negative margin full-bleeds it out over .wrap's padding.
+/* Flush with the content column — no full-bleed — so its edges line up with the
+   masthead rule and body text. Height comes from the banner's OWN width via
+   aspect-ratio, not from vw: the banner is capped by .wrap's max-width, so a
+   vw-based height drifts out of proportion on wide monitors.
+   --bpan is the scroll-parallax offset, set by index.html. */
+/* No opacity fade — it washed the photo out against the white page. Height is
+   what controls how much of the frame shows: cover is already width-bound, so a
+   taller box is the only way to zoom out. 4/1 shows ~40% of the image.
 
-   Two layers, both centered on the same origin so they stay in register:
-   ::before = blurred repeats that fill the width the photo doesn't cover
-   ::after  = the photo itself, sharp, zoomed out to --photo-w
-   --bpan is the scroll-parallax offset, set on .banner by index.html. */
-.banner{ position:relative; overflow:hidden; aspect-ratio:27/4; max-height:160px; min-height:96px;
-  margin:0 calc(-1 * clamp(20px,4vw,48px)) 26px; opacity:.92;
-  border-bottom:1px solid var(--rule); background:var(--mat);
-  --bpan:0px; --photo-w:78%; --photo-y:35%; }
+   Effect: a navy halftone print. ::before is the photo, toned down toward a
+   duotone; ::after is a dot screen in brand navy, multiplied over it. Both cover
+   the full box, so there are no seams. Contrast is nudged up to offset what the
+   screen costs, keeping overall brightness roughly where the raw photo sits. */
+.banner{ position:relative; overflow:hidden; aspect-ratio:4/1; max-height:260px; min-height:120px;
+  margin:0 0 26px; border-bottom:1px solid var(--rule); --bpan:0px; --dot:4.5px; }
 .banner::before,
-.banner::after{ content:''; position:absolute; inset:0;
-  background-image:url(assets/talking.jpg);
-  background-size:var(--photo-w) auto;
-  background-position:center calc(var(--photo-y) + var(--bpan)); }
-.banner::before{ background-repeat:repeat-x; filter:blur(16px) saturate(.8) brightness(1.03);
-  transform:scale(1.08); }                     /* overscan: hides the blur's soft edges */
-.banner::after{ background-repeat:no-repeat; }
+.banner::after{ content:''; position:absolute; inset:0; }
+.banner::before{ background:url(assets/talking.jpg) no-repeat center calc(35% + var(--bpan));
+  background-size:cover;
+  filter:grayscale(.5) contrast(1.1) brightness(1.05) sepia(.06); }
+.banner::after{ mix-blend-mode:multiply; opacity:.4;
+  background-color:rgba(2,43,109,.05);                                  /* faint navy ink tone */
+  background-image:radial-gradient(rgba(2,43,109,.5) 34%, transparent 37%);
+  background-size:var(--dot) var(--dot); }
 .mast{ display:flex; align-items:flex-end; justify-content:space-between; gap:24px;
   padding-bottom:16px; border-bottom:1px solid var(--ink); }
 .mast .who h1{ font-size:clamp(22px,1.15rem + 1vw,26px); font-weight:bold; color:var(--navy); margin:0 0 3px;
