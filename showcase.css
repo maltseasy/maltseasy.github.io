@@ -60,14 +60,30 @@ a{ color:var(--navy); text-decoration:none; }
 a:hover{ text-decoration:underline; }
 a:focus-visible{ outline:2px solid var(--navy); outline-offset:2px; border-radius:2px; }
 
-.wrap{ max-width:1200px; margin:0 auto; padding:0 clamp(20px,4vw,48px) clamp(80px,10vh,120px); }
+.wrap{ max-width:1080px; margin:0 auto; padding:0 clamp(20px,4vw,48px) clamp(80px,10vh,120px); }
 
 /* ── banner + masthead ────────────────────────────────── */
-/* height + full-bleed negative margin stay fluid and in sync with .wrap padding.
-   base background-position 35% matches the crt.js scroll-parallax base. */
-.banner{ height:clamp(96px,14vw,160px); margin:0 calc(-1 * clamp(20px,4vw,48px)) 26px;
-  background:url(assets/talking.jpg) no-repeat center 35%; background-size:cover; opacity:.92;
-  border-bottom:1px solid var(--rule); }
+/* Height comes from the banner's OWN width via aspect-ratio, not from vw — the
+   banner is capped at .wrap's max-width, so a vw-based height drifts out of
+   proportion on wide monitors. 27/4 gives the same 160px at full 1080px width.
+   The negative margin full-bleeds it out over .wrap's padding.
+
+   Two layers, both centered on the same origin so they stay in register:
+   ::before = blurred repeats that fill the width the photo doesn't cover
+   ::after  = the photo itself, sharp, zoomed out to --photo-w
+   --bpan is the scroll-parallax offset, set on .banner by index.html. */
+.banner{ position:relative; overflow:hidden; aspect-ratio:27/4; max-height:160px; min-height:96px;
+  margin:0 calc(-1 * clamp(20px,4vw,48px)) 26px; opacity:.92;
+  border-bottom:1px solid var(--rule); background:var(--mat);
+  --bpan:0px; --photo-w:78%; --photo-y:35%; }
+.banner::before,
+.banner::after{ content:''; position:absolute; inset:0;
+  background-image:url(assets/talking.jpg);
+  background-size:var(--photo-w) auto;
+  background-position:center calc(var(--photo-y) + var(--bpan)); }
+.banner::before{ background-repeat:repeat-x; filter:blur(16px) saturate(.8) brightness(1.03);
+  transform:scale(1.08); }                     /* overscan: hides the blur's soft edges */
+.banner::after{ background-repeat:no-repeat; }
 .mast{ display:flex; align-items:flex-end; justify-content:space-between; gap:24px;
   padding-bottom:16px; border-bottom:1px solid var(--ink); }
 .mast .who h1{ font-size:clamp(22px,1.15rem + 1vw,26px); font-weight:bold; color:var(--navy); margin:0 0 3px;
@@ -101,7 +117,7 @@ a:focus-visible{ outline:2px solid var(--navy); outline-offset:2px; border-radiu
 @media (prefers-reduced-motion:reduce){ .js .reveal{ opacity:1; transform:none; } }
 
 /* ── NOW: featured current-work block (media hero | text) ── */
-.feature{ display:grid; grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);
+.feature{ display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr);
   column-gap:clamp(28px,3.5vw,48px); align-items:start; padding:var(--sp-3) 0 var(--sp-4); }
 .feature .idx{ display:flex; gap:12px; align-items:baseline; margin:0 0 8px; }
 .feature .idx .n{ font-family:var(--mono); font-size:22px; color:var(--numeral); line-height:var(--lh-flat); }
@@ -190,16 +206,6 @@ a:focus-visible{ outline:2px solid var(--navy); outline-offset:2px; border-radiu
   text-transform:uppercase; padding:5px 9px; background:rgba(255,255,255,.92); }
 .ba .tag.l{ left:0; color:var(--muted); } .ba .tag.r{ right:0; color:var(--navy); }
 
-/* ── "also" minor projects ────────────────────────────── */
-.also .row{ display:grid; grid-template-columns:40px 1fr auto; column-gap:clamp(28px,3.5vw,42px);
-  padding:15px 0; border-bottom:1px solid var(--hair); align-items:baseline; }
-.also .row .n{ font-family:var(--mono); font-size:var(--fs-xs); color:var(--faint-ink); }
-.also .row h3{ font-size:clamp(16px,0.95rem + 0.3vw,18px); color:var(--navy); margin:0; font-weight:bold; display:inline; }
-.also .row .sub{ display:block; font-size:14.5px; color:var(--soft); margin-top:3px; max-width:78ch; overflow-wrap:anywhere; }
-.also .row .sub a{ white-space:nowrap; }
-.also .row .meta{ font-family:var(--mono); font-size:var(--fs-2xs); color:var(--muted); letter-spacing:var(--track-label);
-  text-transform:uppercase; white-space:nowrap; }
-
 /* ── coursework / writing ─────────────────────────────── */
 .tags{ line-height:2; margin-top:12px; color:var(--soft); }
 .tags .t{ font-size:var(--fs-sm); }
@@ -214,15 +220,10 @@ pre.ascii{ font-family:var(--mono); font-size:11px; line-height:1.2; color:#7f85
   border:1px solid var(--rule); padding:14px 16px; overflow-x:auto; margin-top:var(--sp-6); max-width:560px; }
 
 /* ── responsive ───────────────────────────────────────────────────────
-   Fluid type + wrap padding carry most widths; three explicit tiers:
-   • 1025–1180  narrow-desktop: relax the 3-col grid so text isn't cramped
+   Fluid type + wrap padding carry most widths; two explicit tiers:
    • ≤1024      stack to a single centered column
    • ≤560       squarer media so panels aren't tall on phones
    ─────────────────────────────────────────────────────────────────── */
-@media (min-width:1025px) and (max-width:1180px){
-  .feature{ grid-template-columns:minmax(0,1fr) minmax(0,1fr); }   /* relax the hero so text isn't cramped */
-}
-
 @media (max-width:1024px){
   .thumb{ max-width:560px; margin-inline:auto; }   /* centered, sensibly-sized media when stacked */
   .mast nav{ white-space:normal; }                  /* let the link row wrap on narrow screens */

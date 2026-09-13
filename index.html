@@ -55,6 +55,7 @@
 
       <div class="kicker"><h2>Past</h2><span class="line"></span><span class="count" id="pwc"></span></div>
       <div id="past"></div>
+      <!-- keep in sync by hand with the PROJECTS array in the page script below -->
       <noscript>
         <div class="nojs">
           <article><h3>RNA therapeutic design</h3><p class="y">since 2024</p><p>State-space sequence encoders for RNA representation, differentiable secondary-structure folding, and guided discrete diffusion for property-constrained sequence design. Hierarchical Bayesian models for sparse assay data.</p></article>
@@ -97,6 +98,12 @@
   </div>
 
   <script>
+  /* page script, top to bottom:
+     helpers (gateRAF) → media builders dispatched by PROJECTS type
+     (video / gallery / srslider / al / fold) → RNA fold demo (Nussinov
+     fold + hill-climb + physics) → Now section render → Past accordion
+     → banner parallax → card scroll-reveal.
+     (js/reveal.js, loaded at the end, is separate: heading grain-dissolve.) */
   document.documentElement.classList.add('js');
   const REDUCE = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   /* run an animation frame only while the canvas is on-screen (saves battery) */
@@ -209,7 +216,7 @@
   }
 
   /* ── bespoke: REAL RNA fold — Nussinov base-pairing + hill-climb + physics ── */
-  const _A='AUGC', _canPair=(x,y)=>{const s=x+y; return s==='AU'||s==='UA'||s==='GC'||s==='CG'||s==='GU'||s==='UG';};
+  const _A='AUGC', rnB=()=>_A[Math.random()*4|0], _canPair=(x,y)=>{const s=x+y; return s==='AU'||s==='UA'||s==='GC'||s==='CG'||s==='GU'||s==='UG';};
   function _fold(seq){
     const n=seq.length, MIN=3, M=Array.from({length:n},()=>new Int16Array(n));
     for(let span=MIN+1;span<n;span++) for(let i=0;i+span<n;i++){ const j=i+span; let best=M[i+1][j];
@@ -224,12 +231,12 @@
   }
   function _score(seq,pair){ let pairs=0,stack=0; for(let i=0;i<seq.length;i++) if(pair[i]>i){ pairs++; if(i>0&&pair[i-1]===pair[i]+1) stack++; } return {pairs,stack,val:pairs+0.6*stack}; }
   function _run(N){
-    let seq=Array.from({length:N},()=>_A[Math.random()*4|0]);
+    let seq=Array.from({length:N},rnB);
     let best={seq:seq, pair:_fold(seq)}; best.sc=_score(best.seq,best.pair);
     let step=0, stale=0; const MAX=300, probes=[], PCAP=160;   // probes: recent REAL candidate evaluations, for the search cloud
     return { get seq(){return best.seq;}, get pair(){return best.pair;}, get sc(){return best.sc;}, get step(){return step;}, get probes(){return probes;}, MAX,
       tick(){ if(step>=MAX||stale>40) return false;            // one mutation per tick — slower, clearer ascent
-        step++; const c=best.seq.slice(), p=Math.random()*N|0; c[p]=_A[Math.random()*4|0];
+        step++; const c=best.seq.slice(), p=Math.random()*N|0; c[p]=rnB();
         const cp=_fold(c), cs=_score(c,cp);
         const acc = cs.val>best.sc.val || (Math.random()<0.04*(1-step/MAX) && cs.val>=best.sc.val-0.6);
         if(acc){ best={seq:c,pair:cp,sc:cs}; stale=0; } else stale++;
@@ -286,11 +293,11 @@
     };
     /* ═══════════════════════════════════════════════════════════════════════ */
     const navy = a => `rgba(${CFG.navyRGB},${a})`;
+    const [NR,NG,NB] = CFG.navyRGB.split(',').map(Number);   // channel values for the surface shader
     const LETTER = { A:CFG.letterAU, U:CFG.letterAU, G:CFG.letterGC, C:CFG.letterGC };
 
     const ctx=cv.getContext('2d'), DPR=Math.min(2,devicePixelRatio||1), N=CFG.seqLength;
-    const A4='AUGC', rnB=()=>A4[Math.random()*4|0];
-    let nodes, frame=0;
+    let nodes;
     let G, S0, Apos, Bpos, Atar, Btar, Z, zMin, zMax, seqG, path, pathPair, mi, sub, hold, peak;
     const size=()=>{ const r=cv.getBoundingClientRect(); cv.width=Math.max(1,r.width*DPR); cv.height=Math.max(1,r.height*DPR); };
 
@@ -359,7 +366,7 @@
         const mz=(z00+z10+z11+z01)/4, dzdx=(z10-z00+z11-z01)/2, dzdy=(z01-z00+z11-z10)/2;
         const nx=-dzdx*5.5, ny=-dzdy*5.5, nz=1, nl=Math.hypot(nx,ny,nz);
         const lam=Math.max(0,(nx*Lx+ny*Ly+nz*Lz)/(nl*Ll)), t=(0.16+0.74*mz)*(amb+(1-amb)*lam);
-        const R=255+(2-255)*t|0, Gc=255+(43-255)*t|0, B=255+(109-255)*t|0;
+        const R=255+(NR-255)*t|0, Gc=255+(NG-255)*t|0, B=255+(NB-255)*t|0;
         ctx.beginPath(); ctx.moveTo(P00.x,P00.y); ctx.lineTo(P10.x,P10.y); ctx.lineTo(P11.x,P11.y); ctx.lineTo(P01.x,P01.y); ctx.closePath();
         ctx.fillStyle=`rgb(${R},${Gc},${B})`; ctx.fill(); ctx.lineWidth=0.6*DPR; ctx.strokeStyle=navy(.16); ctx.stroke(); }
       if(mi>0){ const pts=[]; for(let k=0;k<=mi;k++){ const c=path[k]; pts.push(sp(c[0]/G,c[1]/G,zN(Z[c[0]][c[1]]))); } ctx.lineJoin='round';
@@ -390,7 +397,7 @@
       ctx.textAlign='right'; ctx.fillStyle=navy(.8); ctx.fillText(`${sc.pairs} bp · `+(peak?'peak':'climbing'), w-12*DPR, h-12*DPR); }   // terse status, clears the corner chip at every width
 
     function start(){ size(); buildLandscape(); initFold(); }
-    function step(){ frame++; yaw += CFG.spinSpeed;
+    function step(){ yaw += CFG.spinSpeed;
       if(!peak){ sub += 1/CFG.framesPerStep; if(sub>=1){ sub=0; if(mi<path.length-1) mi++; else peak=true; } }
       else { hold++; if(hold>CFG.holdFrames){ buildLandscape(); initFold(); } }
       physics(curPair()); drawScene(); }
@@ -552,7 +559,20 @@
     });
   });
 
-  /* scroll-reveal (featured + past rows) — content must NEVER stay stuck at opacity:0 */
+  /* banner parallax — pan the header photo down as the page scrolls, revealing a
+     different part of it. Drives --bpan, which showcase.css adds to both banner
+     layers' background-position; capped so the pan can't run past the photo edge.
+     Only the first ~200px of scroll matters — the banner is gone by then. */
+  const banner=document.querySelector('.banner');
+  if(banner && !REDUCE){
+    let bTick=false, bY=0;
+    const pan=()=>{ banner.style.setProperty('--bpan', Math.min(bY*0.35,120).toFixed(1)+'px'); bTick=false; };
+    addEventListener('scroll',()=>{ bY=pageYOffset||0; if(!bTick){ bTick=true; requestAnimationFrame(pan); } },{passive:true});
+  }
+
+  /* card scroll-reveal (featured + past rows) — toggles .in on .reveal blocks; content
+     must NEVER stay stuck at opacity:0. unrelated to js/reveal.js, which is the
+     canvas grain-dissolve for headings. */
   const reveal=el=>el.classList.add('in');
   const revealAll=()=>document.querySelectorAll('.reveal:not(.in)').forEach(reveal);
   if('IntersectionObserver' in window){
