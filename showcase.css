@@ -71,7 +71,7 @@ a:focus-visible{ outline:2px solid var(--navy); outline-offset:2px; border-radiu
    the full box, so there are no seams. Contrast is nudged up to offset what the
    screen costs, keeping overall brightness roughly where the raw photo sits.
    --bpan is the scroll-parallax offset, set by index.html. */
-.banner{ position:relative; overflow:hidden; aspect-ratio:4/1; max-height:260px; min-height:120px;
+.banner{ position:relative; overflow:hidden; width:100%; aspect-ratio:4/1; max-height:260px; min-height:120px;
   margin:0 0 26px; border-bottom:1px solid var(--rule); --bpan:0px; --dot:4.5px; }
 .banner::before,
 .banner::after{ content:''; position:absolute; inset:0; }

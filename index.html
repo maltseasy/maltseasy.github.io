@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Aryan Misra</title>
   <meta name="description" content="Aryan Misra. Machine learning for RNA therapeutics: generative sequence models, differentiable folding, Bayesian inference. Selected work in ML, crypto exchange infrastructure, and generative models.">
-  <link rel="canonical" href="https://aryanmisra.com/">
+  <link rel="canonical" href="https://maltseasy.github.io/">
   <meta name="theme-color" content="#022b6d">
 
   <!-- favicons (root-absolute: resolve from server root now and after promotion) -->
@@ -16,16 +16,16 @@
 
   <!-- social cards -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://aryanmisra.com/">
+  <meta property="og:url" content="https://maltseasy.github.io/">
   <meta property="og:title" content="Aryan Misra">
   <meta property="og:description" content="Machine learning for RNA therapeutics: generative sequence models, differentiable folding, Bayesian inference.">
-  <meta property="og:image" content="https://aryanmisra.com/assets/talking.jpg">
+  <meta property="og:image" content="https://maltseasy.github.io/assets/talking.jpg">
   <meta property="og:image:width" content="1400">
   <meta property="og:image:height" content="888">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Aryan Misra">
   <meta name="twitter:description" content="Machine learning for RNA therapeutics: generative sequence models, differentiable folding, Bayesian inference.">
-  <meta name="twitter:image" content="https://aryanmisra.com/assets/talking.jpg">
+  <meta name="twitter:image" content="https://maltseasy.github.io/assets/talking.jpg">
 
   <link rel="stylesheet" href="showcase.css">
 </head>
@@ -203,7 +203,7 @@
         const sync=()=>{ btn.textContent=v.paused?'▶':'❚❚'; btn.setAttribute('aria-label',v.paused?'Play demo':'Pause demo'); };
         btn.addEventListener('click',()=>{ v.paused?play():v.pause(); sync(); });
         if(REDUCE){ btn.hidden=true; return; }
-        play(); v.addEventListener('canplay',play); v.addEventListener('loadeddata',play); v.addEventListener('play',sync); v.addEventListener('pause',sync);
+        play(); v.addEventListener('play',sync); v.addEventListener('pause',sync);
         document.addEventListener('visibilitychange',()=>{ if(!document.hidden && !v.paused) play(); }); };
     } else if(m.type==='gallery'){
       root=div('mroot frame gallery fit');
@@ -212,10 +212,10 @@
     } else if(m.type==='srslider'){
       root=div('mroot ba');
       root.setAttribute('tabindex','0'); root.setAttribute('role','slider');
-      root.setAttribute('aria-label','Reveal super-resolution output'); root.setAttribute('aria-valuemin','0');
+      root.setAttribute('aria-label','Compare low-resolution input with super-resolution output'); root.setAttribute('aria-valuemin','0');
       root.setAttribute('aria-valuemax','100'); root.setAttribute('aria-valuenow','50');
       root.setAttribute('aria-roledescription','before/after image comparison slider');
-      root.setAttribute('aria-valuetext','50% super-resolution output revealed');
+      root.setAttribute('aria-valuetext','50% low-resolution input, 50% super-resolution output');
       root.innerHTML=`<img class="after" src="${m.after}" width="1000" height="667" alt="SRGAN output" draggable="false" loading="lazy" decoding="async" onerror="phFail(this,'image')">
         <img class="before" src="${m.before}" width="1000" height="667" alt="low-res input" draggable="false" loading="lazy" decoding="async">
         <div class="divider"></div><div class="knob">↔</div>
@@ -435,17 +435,16 @@
 
   /* ── super-res slider; overlays two REAL registered images; selection-safe drag + keyboard ── */
   function mountSR(root){
-    const vtext=n=>Math.round(n)+'% super-resolution output revealed';
-    const set=x=>{ const r=root.getBoundingClientRect(); const v=Math.max(1.5,Math.min(98.5,(x-r.left)/r.width*100));
-      root.style.setProperty('--pos',v+'%'); root.setAttribute('aria-valuenow',Math.round(v)); root.setAttribute('aria-valuetext',vtext(v)); };
+    const vtext=n=>Math.round(n)+'% low-resolution input, '+(100-Math.round(n))+'% super-resolution output';
     const setPct=v=>{ const c=Math.round(Math.max(0,Math.min(100,v))); root.setAttribute('aria-valuenow',c); root.setAttribute('aria-valuetext',vtext(c));
-      root.style.setProperty('--pos',Math.max(1.5,Math.min(98.5,v))+'%'); };
+      root.style.setProperty('--pos',c+'%'); };
+    const set=x=>{ const r=root.getBoundingClientRect(); setPct((x-r.left)/r.width*100); };
     let drag=false;
     const stop=()=>{ drag=false; document.documentElement.classList.remove('sel-none'); };
     root.addEventListener('pointerdown',e=>{ e.preventDefault(); drag=true; document.documentElement.classList.add('sel-none'); try{root.setPointerCapture(e.pointerId)}catch(_){} set(e.clientX); });
     root.addEventListener('pointermove',e=>{ if(drag){ e.preventDefault(); set(e.clientX); } });
     addEventListener('pointerup',stop); root.addEventListener('lostpointercapture',stop);
-    root.addEventListener('keydown',e=>{ const cur=parseFloat(root.getAttribute('aria-valuenow'))||50;
+    root.addEventListener('keydown',e=>{ const value=parseFloat(root.getAttribute('aria-valuenow')); const cur=Number.isFinite(value)?value:50;
       let v; if(e.key==='ArrowLeft') v=cur-4; else if(e.key==='ArrowRight') v=cur+4;
       else if(e.key==='Home') v=0; else if(e.key==='End') v=100; else return;
       e.preventDefault(); setPct(v); });
@@ -573,6 +572,9 @@
       +`<span class="mini">${p.thumb?`<img src="${p.thumb}" alt="" loading="lazy" decoding="async" onerror="this.style.display='none'">`:''}</span>`
       +`<span class="chev" aria-hidden="true"></span>`;
     const detail=div('past-detail'), inner=div('past-inner'), body=div('past-body');
+    detail.id=`${host.id}-detail-${host.children.length+1}`;
+    detail.inert=true; detail.setAttribute('aria-hidden','true');
+    head.setAttribute('aria-controls',detail.id);
     const fig=div('figure'); const {node,mount}=buildMedia(p); fig.appendChild(node);
     const text=div('text');
     text.innerHTML=bodyHTML(p);
@@ -580,10 +582,11 @@
     item.append(head,detail); host.appendChild(item);
 
     let mounted=false, vid=null;
-    const doMount=()=>{ if(mounted) return; mounted=true; safeMount(mount,node); vid=node.querySelector('video'); };
+    const doMount=()=>{ if(mounted || !item.classList.contains('open')) return; mounted=true; safeMount(mount,node); vid=node.querySelector('video'); };
     head.addEventListener('click',()=>{
       const open=item.classList.toggle('open');
       head.setAttribute('aria-expanded', open?'true':'false');
+      detail.inert=!open; detail.setAttribute('aria-hidden',open?'false':'true');
       if(open){
         if(!mounted){ detail.addEventListener('transitionend',doMount,{once:true}); setTimeout(doMount,480); }   // mount after the expand settles (real size)
         else if(vid && !REDUCE){ const pp=vid.play(); if(pp) pp.catch(()=>{}); }
