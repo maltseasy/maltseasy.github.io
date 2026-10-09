@@ -27,7 +27,7 @@
   <meta name="twitter:description" content="Machine learning for RNA therapeutics: generative sequence models, differentiable folding, Bayesian inference.">
   <meta name="twitter:image" content="https://maltseasy.github.io/assets/talking.jpg">
 
-  <link rel="stylesheet" href="showcase.css">
+  <link rel="stylesheet" href="showcase.css?v=3c9acc46">
 </head>
 <body>
   <div class="wrap">
@@ -46,11 +46,10 @@
           <a href="mailto:aryanmisra4@gmail.com">mail</a>
         </nav>
       </div>
-      <p class="intro">I came to machine learning through <b>mathematics and statistics</b>, which I study as an
-        undergraduate at the University of Toronto. My research is on RNA therapeutics: sequence
-        representation models, differentiable secondary-structure folding, and Bayesian inference for the
-        small, noisy datasets that wet-lab assays actually produce. Before this I built a crypto
-        order-book exchange, and worked on molecular generation and image super-resolution.</p>
+      <p class="intro">I study <b>mathematics and statistics</b> at the University of Toronto. My research applies
+        machine learning to RNA therapeutics: sequence models, differentiable secondary-structure folding,
+        and Bayesian inference for small, noisy assays. Previously, I built a crypto order-book exchange
+        and worked on molecular generation and image super-resolution.</p>
     </header>
 
     <section>
@@ -67,7 +66,7 @@
       <noscript>
         <div class="nojs">
           <h2>Experience</h2>
-          <article><h3>Kerna Labs</h3><p class="y">Machine learning engineer intern · since 2024</p><p>Computational design of mRNA therapeutics: predict how long a transcript survives in the cell, then search for sequences that survive longer.</p><p>State-space encoder over whole transcripts for half-life regression; genome-aware cross-validation, ensembled. Discrete diffusion with classifier guidance for property-constrained generation. Folding energy and loop accessibility from ViennaRNA with modified-base parameters. Multi-objective search over coding sequence and 3&prime; UTR against codon pair bias, CpG content, and tissue-specific codon usage. Hierarchical Bayesian fits for assays that return a few hundred noisy points.</p></article>
+          <article><h3>Kerna Labs</h3><p class="y">Machine learning engineer intern · since 2024</p><p>Computational design of mRNA therapeutics: predict how long a transcript survives in the cell, then search for sequences that survive longer.</p><dl class="methods"><div class="method"><dt>Sequence models.</dt> <dd>State-space encoder over whole transcripts for half-life regression; genome-aware cross-validation, ensembled. Discrete diffusion with classifier guidance for property-constrained generation.</dd></div><div class="method"><dt>Structure and sequence design.</dt> <dd>Folding energy and loop accessibility from ViennaRNA with modified-base parameters. Multi-objective search over coding sequence and 3&prime; UTR against codon pair bias, CpG content, and tissue-specific codon usage.</dd></div><div class="method"><dt>Assay inference.</dt> <dd>Hierarchical Bayesian fits for assays that return a few hundred noisy points.</dd></div></dl></article>
           <article><h3>Bitswap</h3><p class="y">CTO · 2021</p><p>Order-book exchange for BitClout (DeSo), bridging creator coins and Ethereum.</p><p>Built the price-time-priority matching engine: limit and market orders, partial fills, on-chain settlement across both chains. $3M+ volume, 6,000+ users; $100K for 1% offered by Dharmesh Shah. Open-sourced at wind-down.</p><p><a href="https://github.com/bitswap-network" rel="noopener">github</a>, <a href="https://github.com/bitswap-network/exchange-engine" rel="noopener">engine</a></p></article>
           <article><h3>AscendBuild</h3><p class="y">Front-end engineer · 2020</p><p>Search tool for real estate developers: which parcels are worth building on, and what comparable buildings rent for. Rental listings from Craigslist, Zumper, and Kijiji, rolled up into building-level records with price-per-square-foot trends.</p><p>Built the interface with one other front-end engineer: Mapbox GL basemap, polygon-draw parcel search over turf point-in-polygon, and a payments rail. Wrote the property ranking system, statistical scoring of buildings over geospatial data. The Next 36, Next Canada 2020.</p></article>
           <article><h3>Holy Grail</h3><p class="y">Machine learning intern · 2020</p><p>Holy Grail (YC S19) formulates new materials with machine learning, where every data point is a physical experiment that takes days.</p><p>MC-dropout Bayesian network with a Bayesian-optimized architecture. Permutation feature importance for which inputs matter; variational optimal experiment design to choose the next formulation to run. Applied to bioplastics, concrete, brewing.</p></article>
@@ -114,10 +113,7 @@
   /* page script, top to bottom:
      helpers (gateRAF) → media builders dispatched by ENTRIES media type
      (video / gallery / srslider / al / fold) → RNA fold demo (Nussinov
-     fold + hill-climb + physics) → Now section render → Past accordion
-     → banner parallax → card scroll-reveal.
-     (js/reveal.js, loaded at the end, is separate: heading grain-dissolve.) */
-  document.documentElement.classList.add('js');
+     fold + hill-climb + physics) → Now section render → Past accordion. */
   const REDUCE = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   /* run an animation frame only while the canvas is on-screen (saves battery) */
   function gateRAF(el, frame){
@@ -135,7 +131,11 @@
   const ENTRIES = [
     { kind:'work', org:'Kerna Labs', role:'Machine learning engineer intern', year:'since 2024',
       what:'Computational design of mRNA therapeutics: predict how long a transcript survives in the cell, then search for sequences that survive longer.',
-      did:'State-space encoder over whole transcripts for half-life regression; genome-aware cross-validation, ensembled. Discrete diffusion with classifier guidance for property-constrained generation. Folding energy and loop accessibility from ViennaRNA with modified-base parameters. Multi-objective search over coding sequence and 3&prime; UTR against codon pair bias, CpG content, and tissue-specific codon usage. Hierarchical Bayesian fits for assays that return a few hundred noisy points.',
+      methods:[
+        {label:'Sequence models', text:'State-space encoder over whole transcripts for half-life regression; genome-aware cross-validation, ensembled. Discrete diffusion with classifier guidance for property-constrained generation.'},
+        {label:'Structure and sequence design', text:'Folding energy and loop accessibility from ViennaRNA with modified-base parameters. Multi-objective search over coding sequence and 3&prime; UTR against codon pair bias, CpG content, and tissue-specific codon usage.'},
+        {label:'Assay inference', text:'Hierarchical Bayesian fits for assays that return a few hundred noisy points.'}
+      ],
       links:[],
       media:{type:'fold', mat:true, label:''} },
 
@@ -143,7 +143,7 @@
       short:'Order-book exchange bridging BitClout creator coins and Ethereum.', thumb:'assets/bitswap-poster.jpg',
       what:'Order-book exchange for BitClout (DeSo), bridging creator coins and Ethereum.',
       did:'Built the price-time-priority matching engine: limit and market orders, partial fills, on-chain settlement across both chains. Open-sourced at wind-down.',
-      stat:'<b>$3M+</b> volume · <b>6,000+</b> users · <b>$100K</b> for 1% offered by Dharmesh Shah',
+      stat:'<b>$3M+</b> volume · <b>6,000+</b> users<br><b>$100K</b> for 1% offered by Dharmesh Shah',
       links:[{l:'github',h:'https://github.com/bitswap-network'},{l:'engine',h:'https://github.com/bitswap-network/exchange-engine'},{l:'new yorker',h:'https://www.newyorker.com/tech/annals-of-technology/the-dark-democratizing-power-of-the-social-media-stock-market'}],
       media:{type:'video', src:'assets/bitswap-loop.mp4', poster:'assets/bitswap-poster.jpg', corner:'bitswap.network'} },
 
@@ -549,23 +549,27 @@
     ? `<span class="role">${p.role}</span><span class="d">·</span><span class="org">${p.org}</span>`
     : `<span class="org">${p.name}</span>`;
   const heading  = p => p.kind==='work' ? p.org : p.name;
-  const bodyHTML = p => `<p class="what">${p.what}</p><p class="did">${p.did}</p>`
+  const detailsHTML = p => (p.methods
+    ? `<dl class="methods">${p.methods.map(m=>`<div class="method"><dt>${m.label}.</dt> <dd>${m.text}</dd></div>`).join('')}</dl>`
+    : `<p class="did">${p.did}</p>`)
     + (p.stat?`<div class="stat">${p.stat}</div>`:'') + linksHTML(p);
+  const bodyHTML = p => `<p class="what">${p.what}</p>` + detailsHTML(p);
 
   /* ── the current role gets the full-width block and mounts immediately ── */
   (function(){
-    const p=FEATURED, block=div('feature reveal');
+    const p=FEATURED, block=div('feature');
     const fig=div('figure'); const {node,mount}=buildMedia(p); fig.appendChild(node);
-    const text=div('text');
-    text.innerHTML=`<div class="idx"><span class="n">${p.role}</span><span class="y">${p.year}</span></div>
-      <h3>${heading(p)}</h3>${bodyHTML(p)}`;
-    block.append(fig,text); nowEl.appendChild(block);
+    const lead=div('text feature-lead'), details=div('text feature-details');
+    lead.innerHTML=`<div class="idx"><span class="n">${p.role}</span><span class="y">${p.year}</span></div>
+      <h3>${heading(p)}</h3><p class="what">${p.what}</p>`;
+    details.innerHTML=detailsHTML(p);
+    block.append(lead,fig,details); nowEl.appendChild(block);
     requestAnimationFrame(()=>safeMount(mount,node));
   })();
 
   /* ── collapsed rows; the demo mounts + plays only when the row is expanded ── */
   const row = (p, host) => {
-    const item=div('past reveal');
+    const item=div('past');
     const head=document.createElement('button'); head.type='button'; head.className='past-head'; head.setAttribute('aria-expanded','false');
     head.innerHTML=`<span class="head-main"><span class="ttl-row"><span class="ttl">${rowLabel(p)}</span><span class="yr">${p.year}</span></span>`
       +`<span class="blurb">${p.short||''}</span></span>`
@@ -596,29 +600,6 @@
   WORK_ROWS.forEach(p=>row(p,workEl));
   PRJ.forEach(p=>row(p,prjEl));
 
-  /* banner parallax: pan the header photo down as the page scrolls, revealing a
-     different part of it. Drives --bpan, which showcase.css adds to both banner
-     layers' background-position; capped so the pan can't run past the photo edge.
-     Only the first ~200px of scroll matters; the banner is gone by then. */
-  const banner=document.querySelector('.banner');
-  if(banner && !REDUCE){
-    let bTick=false, bY=0;
-    const pan=()=>{ banner.style.setProperty('--bpan', Math.min(bY*0.35,120).toFixed(1)+'px'); bTick=false; };
-    addEventListener('scroll',()=>{ bY=pageYOffset||0; if(!bTick){ bTick=true; requestAnimationFrame(pan); } },{passive:true});
-  }
-
-  /* card scroll-reveal (featured + past rows); toggles .in on .reveal blocks; content
-     must NEVER stay stuck at opacity:0. unrelated to js/reveal.js, which is the
-     canvas grain-dissolve for headings. */
-  const reveal=el=>el.classList.add('in');
-  const revealAll=()=>document.querySelectorAll('.reveal:not(.in)').forEach(reveal);
-  if('IntersectionObserver' in window){
-    const io=new IntersectionObserver(es=>{es.forEach(en=>{ if(en.isIntersecting){ reveal(en.target); io.unobserve(en.target); }});},{threshold:.1, rootMargin:'0px 0px -6% 0px'});
-    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-    setTimeout(revealAll,1500);
-    addEventListener('load',()=>setTimeout(revealAll,300));
-  } else revealAll();
   </script>
-  <script src="js/reveal.js"></script>
 </body>
 </html>

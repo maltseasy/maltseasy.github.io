@@ -69,13 +69,12 @@ a:focus-visible{ outline:2px solid var(--navy); outline-offset:2px; border-radiu
    Effect: a navy halftone print. ::before is the photo, toned down toward a
    duotone; ::after is a dot screen in brand navy, multiplied over it. Both cover
    the full box, so there are no seams. Contrast is nudged up to offset what the
-   screen costs, keeping overall brightness roughly where the raw photo sits.
-   --bpan is the scroll-parallax offset, set by index.html. */
+   screen costs, keeping overall brightness roughly where the raw photo sits. */
 .banner{ position:relative; overflow:hidden; width:100%; aspect-ratio:4/1; max-height:260px; min-height:120px;
-  margin:0 0 26px; border-bottom:1px solid var(--rule); --bpan:0px; --dot:4.5px; }
+  margin:0 0 26px; border-bottom:1px solid var(--rule); --dot:4.5px; }
 .banner::before,
 .banner::after{ content:''; position:absolute; inset:0; }
-.banner::before{ background:url(assets/talking.jpg) no-repeat center calc(35% + var(--bpan));
+.banner::before{ background:url(assets/talking.jpg) no-repeat center 35%;
   background-size:cover;
   filter:grayscale(.5) contrast(1.1) brightness(1.05) sepia(.06); }
 .banner::after{ mix-blend-mode:multiply; opacity:.4;
@@ -84,7 +83,7 @@ a:focus-visible{ outline:2px solid var(--navy); outline-offset:2px; border-radiu
   background-size:var(--dot) var(--dot); }
 .mast{ display:flex; align-items:flex-end; justify-content:space-between; gap:24px;
   padding-bottom:16px; border-bottom:1px solid var(--ink); }
-.mast .who h1{ font-size:clamp(22px,1.15rem + 1vw,26px); font-weight:bold; color:var(--navy); margin:0 0 3px;
+.mast .who h1{ font-size:clamp(28px,1.5rem + 1vw,36px); line-height:var(--lh-tight); font-weight:bold; color:var(--navy); margin:0 0 8px;
   letter-spacing:var(--track-tight); text-shadow:var(--glow); }
 .mast .who p{ margin:0; font-size:14px; color:var(--muted); font-style:italic; }
 .mast nav{ font-family:var(--serif); font-size:14px; font-style:italic; white-space:nowrap; padding-bottom:2px; }
@@ -111,16 +110,14 @@ a:focus-visible{ outline:2px solid var(--navy); outline-offset:2px; border-radiu
 .nojs .y{ font-family:var(--serif); font-size:13px; font-style:italic; color:var(--muted); margin:4px 0 8px; }
 .nojs p{ margin:0 0 8px; color:var(--soft); font-size:var(--fs-write); line-height:var(--lh-body); max-width:72ch; }
 
-/* scroll-reveal shared by the featured block and past rows */
-.reveal{ transition:opacity .7s ease, transform .7s ease; }
-.js .reveal{ opacity:0; transform:translateY(14px); }
-.js .reveal.in{ opacity:1; transform:none; }
-@media (prefers-reduced-motion:reduce){ .js .reveal{ opacity:1; transform:none; } }
-
 /* ── current role: full-width block, media hero | text ── */
 .feature{ display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+  grid-template-areas:"figure lead" "figure details"; grid-template-rows:auto 1fr;
   column-gap:clamp(28px,3.5vw,48px); align-items:start; padding:var(--sp-3) 0 var(--sp-4); }
-.feature .idx{ display:flex; gap:12px; align-items:baseline; margin:0 0 8px; }
+.feature > .figure{ grid-area:figure; }
+.feature-lead{ grid-area:lead; }
+.feature-details{ grid-area:details; border-top:1px solid var(--hair); padding-top:14px; }
+.feature .idx{ display:flex; flex-wrap:wrap; column-gap:12px; row-gap:4px; align-items:baseline; margin:0 0 8px; }
 /* .n is the role label ("Machine learning intern"), not a numeral; size it as text */
 .feature .idx .n{ font-family:var(--serif); font-size:16px; color:var(--navy-soft); line-height:var(--lh-flat);
   font-variant-caps:small-caps; letter-spacing:var(--track-label); }
@@ -174,8 +171,12 @@ a:focus-visible{ outline:2px solid var(--navy); outline-offset:2px; border-radiu
 .text .what{ font-size:var(--fs-write); line-height:var(--lh-body); color:var(--ink); margin:0 0 12px; }
 .text .did{ font-size:var(--fs-write); line-height:var(--lh-body); color:var(--soft); margin:0 0 14px;
   padding-top:12px; border-top:1px solid var(--hair); }
-.text .stat{ font-family:var(--serif); font-size:13px; font-style:italic; color:var(--muted); margin:0 0 13px; }
-.text .stat b{ color:var(--navy); font-weight:normal; }
+.methods{ margin:0; font-size:var(--fs-write); line-height:var(--lh-body); }
+.method + .method{ margin-top:12px; }
+.methods dt{ display:inline; color:var(--navy); font-weight:bold; }
+.methods dd{ display:inline; margin:0; color:var(--soft); }
+.text .stat{ font-family:var(--serif); font-size:15px; line-height:1.5; font-style:normal; color:var(--soft); margin:0 0 13px; }
+.text .stat b{ color:var(--navy); font-weight:bold; }
 .text .links{ font-family:var(--serif); font-size:14.5px; font-style:italic; }
 .text .links a{ color:var(--navy); overflow-wrap:anywhere; } .text .links .d{ color:var(--sep); margin:0 9px; }
 
@@ -248,7 +249,9 @@ pre.ascii{ font-family:var(--mono); font-size:11px; line-height:1.02; color:#7f8
   .mast nav{ white-space:normal; }                  /* let the link row wrap on narrow screens */
   .mast nav a{ display:inline-block; padding:8px 4px; }   /* ≥44px-ish hit area without changing look */
   .mast{ flex-direction:column; align-items:flex-start; gap:12px; }
-  .feature{ grid-template-columns:1fr; row-gap:18px; }      /* stack media over text */
+  .feature{ grid-template-columns:1fr; grid-template-areas:"lead" "figure" "details";
+    grid-template-rows:auto auto auto; row-gap:18px; }
+  .feature-lead .what{ margin-bottom:0; }
   .past-body{ grid-template-columns:1fr; row-gap:14px; }    /* stack expanded media over text */
   .kicker{ margin-top:var(--sp-5); }
 }
@@ -269,12 +272,11 @@ pre.ascii{ font-family:var(--mono); font-size:11px; line-height:1.02; color:#7f8
   .ba .knob{ width:44px; height:44px; margin:-22px 0 0 -22px; }   /* WCAG 2.5.5 touch target */
 }
 
-/* ── print: reveal everything, expand collapsed rows, drop overlays ── */
+/* ── print: expand collapsed rows, drop overlays ── */
 @media print{
   .banner{ display:none; }
   .vtint{ display:none; }
   .thumb, .thumb.mat{ background:#fff; }
-  .js .reveal{ opacity:1 !important; transform:none !important; }
   .past-detail{ grid-template-rows:1fr !important; }
   .past-inner{ overflow:visible; }
   .chev{ display:none; }
